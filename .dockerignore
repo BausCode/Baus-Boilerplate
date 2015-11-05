@@ -1,0 +1,12 @@
+Dockerfile
+.dockerignore
+
+.DS_Store
+.sass-cache
+
+env
+node_modules
+bower_components
+
+*.swo
+*.swp
