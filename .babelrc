@@ -1,3 +1,19 @@
 {
-  "presets": ["es2015", "react"]
+  "presets": ["es2015", "react"],
+  "env": {
+  // TODO: Uncomment when Babel-Plugin-React-Transform ready for Babel 6
+    /*"development": {*/
+      /*"plugins": ["react-transform"],*/
+      /*"extra": {*/
+        /*"react-transform": {*/
+          /*"transforms": [{*/
+            /*"transform": "react-transform-hmr",*/
+            /*"transform": "react-transform-catch-errors",*/
+            /*"imports": ["react"],*/
+            /*"locals": ["module"]*/
+          /*}]*/
+        /*}*/
+      /*}*/
+    /*}*/
+  }
 }
