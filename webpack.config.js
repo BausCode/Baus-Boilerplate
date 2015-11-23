@@ -26,9 +26,6 @@ var config = {
       {
         test: /\.js?$|\.jsx?$/,
         loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
-        },
         exclude: /node_modules/
       },
       {
