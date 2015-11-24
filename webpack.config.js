@@ -2,17 +2,16 @@
 
 import webpack from 'webpack';
 import path from 'path';
-import htmlWebpackPlugin from 'html-webpack-plugin';
 
 const ROOT_PATH = path.resolve(__dirname);
-const APP_PATH = path.resolve(ROOT_PATH, 'app');
+const APP_PATH = path.resolve(ROOT_PATH, 'public', 'js', 'app.js');
 const BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
 
 var config = {
   devtool: 'eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, 'app')
+    APP_PATH
   ],
   output: {
     path: BUILD_PATH,
@@ -35,13 +34,7 @@ var config = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new htmlWebpackPlugin({
-      title: 'Setup',
-      template: 'public/templates/index.tpl.html',
-      inject: 'body',
-      filename: 'index.html'
-    })
+    new webpack.HotModuleReplacementPlugin()
   ]
 };
 

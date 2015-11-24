@@ -9,6 +9,7 @@ export default [
     component: App,
     indexRoute: { component: Main },
     childRoutes: [
+      { path: '/', component: Main },
       { path: 'page2', component: Page2 },
       { path: '*', component: NoMatch }
     ]

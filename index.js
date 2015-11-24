@@ -2,6 +2,12 @@
 
 import path from 'path';
 import express from 'express';
+import exphbs from 'express-handlebars';
+import React from 'React';
+import { renderToString } from 'react-dom/server';
+import { match, RoutingContext } from 'react-router';
+import routes from './public/js/routes';
+
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
@@ -12,7 +18,15 @@ const port = isDev ? 3000: process.env.PORT;
 const publicPath = path.resolve(__dirname, 'dist');
 const app = express();
 
+var hbs = exphbs.create({
+  layoutsDir: 'views/_layouts',
+  defaultLayout: 'default',
+  extname: '.hbs'
+});
 
+app.engine('.hbs', hbs.engine); 
+app.set('views', 'views/_pages');
+app.set('view engine', '.hbs');
 
 if (isDev) {
   const compiler = webpack(config);
@@ -31,9 +45,24 @@ if (isDev) {
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
+
   app.get('*', function response(req, res) {
-    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
-    res.end();
+    match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+      if (error) {
+        res.status(500).send(error.message);
+      } else if (redirectLocation) {
+        res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+      } else if (renderProps) {
+        let html = renderToString(<RoutingContext {...renderProps} />);
+
+        res.status(200).render('main', {content: html});
+
+      } else {
+        res.status(404).render('404');
+      }
+    });
+    //res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
+    //res.render('main').end();
   });
 }
 else {
@@ -48,5 +77,5 @@ app.listen(port, 'localhost', function onStart(err) {
   if (err) {
     console.log(err);
   }
-  console.info('==> 🌊  Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
+  console.info('Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
 });
