@@ -18,9 +18,11 @@
   "dependencies": {
     "express": "^4.13.3",
     "fs": "0.0.2",
+    "history": "^1.13.1",
     "path": "^0.12.7",
     "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react-dom": "^0.14.3",
+    "react-router": "^1.0.0"
   },
   "devDependencies": {
     "babel-loader": "^6.2.0",

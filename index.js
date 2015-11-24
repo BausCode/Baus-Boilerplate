@@ -12,12 +12,11 @@ const port = isDev ? 3000: process.env.PORT;
 const publicPath = path.resolve(__dirname, 'dist');
 const app = express();
 
-app.use(express.static(publicPath));
+
 
 if (isDev) {
   const compiler = webpack(config);
-
-  app.use(webpackMiddleware(compiler, {
+  const middleware = webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,
     contentBase: 'src',
     stats: {
@@ -28,14 +27,22 @@ if (isDev) {
       chunkModules: false,
       modules: false
     }
-  }));
+  });
 
+  app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
+  app.get('*', function response(req, res) {
+    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
+    res.end();
+  });
 }
+else {
+  app.use(express.static(publicPath));
 
-app.get('*', function response(req, res) {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
-});
+  app.get('*', function response(req, res) {
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
+  });
+}
 
 app.listen(port, 'localhost', function onStart(err) {
   if (err) {

@@ -1,0 +1,182 @@
+// _mixins.scss
+//   and functions
+//   and $font-size-* variables
+
+
+
+// mq()
+//   Media Queries
+//   EXAMPLE: use the large breakpoint media query
+//     @include mq($L) {}
+@mixin mq($media-query) {
+  @media (#{$media-query}) { @content; }
+}
+
+
+// fixed-ratio()
+//   Calculate fixed ratio based on two dimensions (width/height)
+//     http://voormedia.com/blog/2012/11/responsive-background-images-with-fixed-or-fluid-aspect-ratios
+//   EXAMPLE
+//     @include fixed-ratio(800px 450px); // width height
+@mixin fixed-ratio($size) {
+  $width:  nth($size, 1);
+  $height: nth($size, 2);
+  $slope: $height / $width;
+
+  @include background-size('cover');
+  background-position: center;  /* Internet Explorer 7/8 */
+  padding-top: percentage($slope);
+}
+
+
+// fluid-ratio()
+//   Calculate fluid ratio based on two dimensions (width/height)
+//     http://voormedia.com/blog/2012/11/responsive-background-images-with-fixed-or-fluid-aspect-ratios
+//   EXAMPLE
+//     @include fluid-ratio(800px 200px, 300px 150px); // width height, width height
+@mixin fluid-ratio($large-size, $small-size) {
+  $width-large: nth($large-size, 1);
+  $width-small: nth($small-size, 1);
+  $height-large: nth($large-size, 2);
+  $height-small: nth($small-size, 2);
+  $slope: ($height-large - $height-small) / ($width-large - $width-small);
+  $height: $height-small - $width-small * $slope;
+  
+  @include background-size('cover');
+
+  background-position: center;  /* Internet Explorer 7/8 */
+  height: $height;
+  padding-top: percentage($slope);
+
+  
+}
+
+
+// color-each-pseudo-element-link()
+//   Add color for each link pseudo element
+//   NOTE: remember LVHA (link, visited, hover, active)
+//   EXAMPLE
+//     @include color-each-pseudo-element-link($link-dark, $link-dark, $link-dark-hover, $link-dark-hover);
+@mixin color-each-pseudo-element-link($link, $visited, $hover, $active) {
+  &:link { color: $link; }
+  &:visited { color: $visited; }
+  &:hover { color: $hover; }
+  &:active { color: $active; }
+}
+
+
+// image-replacement()
+//   Add image replacement technique
+//     http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ */
+//   EXAMPLE
+//     @include image-replacement();
+@mixin image-replacement() {
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+
+// rgb-alpha()
+//  Converts hex in to rgb and allows for opacity variable
+//  Example
+//    rgb-alpha($black, .5);
+@function rgb-alpha($color, $opacity: 1) {
+  @return rgba($color, $opacity);
+}
+
+
+// keyframes()
+// https://gist.github.com/ericam/1607696
+// EXAMPLE
+//   @include keyframes(example) {
+//     0%  { background: #F00; }
+//     50% { background: #BADA55; }
+//     100%{ background: #F00; }
+//   }
+
+// this should be about to be done away with in favor of compass'
+// http://compass-style.org/reference/compass/css3/animation/#mixin-keyframes
+//@mixin keyframes($name) {
+//  @-webkit-keyframes #{$name} {
+//    @content; 
+//  }
+//  @-moz-keyframes #{$name} {
+//    @content;
+//  }
+//  @-o-keyframes #{$name} {
+//    @content;
+//  }
+//  @keyframes #{$name} {
+//    @content;
+//  } 
+//}
+
+
+// strip-units()
+//   Remove units from a Sass value with units (em, px, etc.)
+//     http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass#answer-12335841
+//   EXAMPLE
+//     strip-units($my-var);
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+
+// get-multiplier()
+//   Get the multiplier for the pixel value divided by the current/contextual font size
+//   EXAMPLE
+//     get-multiplier(24, $font-size-h4);
+@function get-multiplier($px-value, $current-font-size) {
+  @return ($px-value / strip-units($current-font-size * $vertical-rhythm-base));
+  // EXAMPLE 30px /            (    3em               *          16px        )
+  //         30px /                                  48px
+  //                        = .625
+}
+
+
+// Font Size Variables
+//   Dependant on get-multiplier()
+$font-size-1: get-multiplier(50, $font-size-base) + 0em; // 50px
+$font-size-2: get-multiplier(32, $font-size-base) + 0em; // 32px
+$font-size-3: get-multiplier(22, $font-size-base) + 0em; // 22px
+$font-size-4: get-multiplier(18, $font-size-base) + 0em; // 18px
+$font-size-5: $font-size-base;                           // 16px
+$font-size-6: get-multiplier(14, $font-size-base) + 0em; // 14px
+$font-size-7: get-multiplier(11, $font-size-base) + 0em; // 11px
+
+
+// Headings
+//   Dependant on $font-size-* variables
+//               font-size : line-height
+@mixin heading-1() { // 50 : 56
+  font-size: $font-size-1;
+  line-height: get-multiplier(56, $font-size-1);
+}
+
+@mixin heading-2() { // 32 : 36
+  font-size: $font-size-2;
+  line-height: get-multiplier(36, $font-size-2);
+}
+
+@mixin heading-3() { // 24 : 36
+  font-size: $font-size-3;
+  line-height: get-multiplier(30, $font-size-3);
+  font-weight: normal;
+}
+
+@mixin heading-4() { // 18 : 36
+  font-size: $font-size-4;
+  line-height: get-multiplier(24, $font-size-4);
+  font-weight: normal;
+}
+
+@mixin heading-5() { // 16 : 24
+  font-size: $font-size-base; // $font-size-5
+  line-height: get-multiplier(24, $font-size-base);
+}
+
+@mixin heading-6() { // 14 : 18
+  font-size: $font-size-6;
+  line-height: get-multiplier(18, $font-size-6);
+}
