@@ -1,24 +1,28 @@
 'use strict';
 
-var Webpack = require('webpack');
-var path = require('path');
-var nodeModulePath = path.resolve(__dirname, 'node_modules');
-var buildPath = path.resolve(__dirname, 'public', 'build');
-var mainPath = path.resolve(__dirname, 'app', 'main.js');
+import webpack from 'webpack';
+import  path from 'path';
+
+const ROOT_PATH = path.resolve(__dirname);
+const BUILD_PATH = path.resolve(ROOT_PATH, 'public');
+const APP_PATH = path.resolve(ROOT_PATH, 'app', 'app.js');
 
 var configs = {
   devtool: 'source-map',
-  entry: mainPath,
+  entry: APP_PATH,
   output: {
-    path: buildPath,
-    filename: 'bundle.js'
+    path: BUILD_PATH,
+    filename: 'app.js'
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.js(x)?$/,
         loader: 'babel',
-        exclude: [nodeModulePath]
+        exclude: /node_modules/ 
       },
       {
         test: /\.css$/,

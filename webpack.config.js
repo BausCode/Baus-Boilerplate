@@ -4,8 +4,8 @@ import webpack from 'webpack';
 import path from 'path';
 
 const ROOT_PATH = path.resolve(__dirname);
-const APP_PATH = path.resolve(ROOT_PATH, 'public', 'js', 'app.js');
-const BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
+const BUILD_PATH = path.resolve(ROOT_PATH, 'public');
+const APP_PATH = path.resolve(ROOT_PATH, 'app', 'app.js');
 
 var config = {
   devtool: 'eval-source-map',
@@ -15,7 +15,7 @@ var config = {
   ],
   output: {
     path: BUILD_PATH,
-    filename: 'bundle.js'
+    filename: 'app.js'
   },
   resolve: {
     extensions: ['', '.js', '.jsx']

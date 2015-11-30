@@ -1,12 +1,12 @@
 import React from 'react';
-import Title from './Title.jsx';
-import Nav from './Nav.jsx';
+import Title from './Title';
+import Nav from './Nav';
 
 class App extends React.Component {
   render () {
     return (
       <main>
-        <header className="header">
+        <header>
           <Title />
           <Nav />
         </header>

@@ -1,7 +1,7 @@
-import App from './components/App.jsx';
-import Main from './components/main/Index.jsx';
-import Page2 from './components/Page2/Index.jsx';
-import NoMatch from './components/NoMatch.jsx';
+import App from './components/App';
+import Main from './components/main/Index';
+import Page2 from './components/Page2/Index';
+import NoMatch from './components/NoMatch';
 
 export default [
   {
