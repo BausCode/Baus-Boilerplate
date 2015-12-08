@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from './Title';
-import Nav from './Nav';
+import Nav from './Nav/Nav';
 
 class App extends React.Component {
   render () {

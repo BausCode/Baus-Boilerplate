@@ -7,11 +7,14 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="description" content="">
     <title>Boilerplate</title>
-    <link rel="shortcut icon" href="images/touch/touch-icon-57x57.png">
+    <link rel="shortcut icon" href="/images/touch/touch-icon-57x57.png">
+    {{#isProd env}}
+    <link rel="stylesheet" type="text/css" href="/dist/app.css" />
+    {{/isProd}}
     <!--<script src="js/libs/modernizr.js"></script>-->
   </head>
   <body>
     {{{body}}}
-    <script src="app.js"></script>
+    <script src="/dist/app.js"></script>
   </body>
 </html>

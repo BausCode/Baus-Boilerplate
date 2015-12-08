@@ -1,5 +1,13 @@
 {
-  "presets": ["es2015", "react"],
+  "presets": [
+    "es2015", 
+    "react"
+  ],
+
+  "plugins": [
+    "syntax-decorators"
+  ],
+
   "env": {
   // TODO: Uncomment when Babel-Plugin-React-Transform ready for Babel 6
     /*"development": {*/
