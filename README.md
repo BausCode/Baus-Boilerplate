@@ -1,7 +1,6 @@
-React Boilerplate
+GitBaus
 ------
-This is a boilerplate for isomorphic React apps using Express, Webpack, React, ES6, and prepared to be deployed via Docker.
-
+Client side app for GitBaus
 
 ## Requirements
 * [Node.js v5](https://nodejs.org/en/download/)
