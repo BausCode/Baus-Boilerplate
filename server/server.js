@@ -42,6 +42,7 @@ module.exports = {
       const middleware = webpackMiddleware(compiler, {
         publicPath: config.output.publicPath,
         contentBase: `http://${host}:${port+1}`,
+        headers: { "Access-Control-Allow-Origin": "*" },
         stats: {
           colors: true,
           hash: false,

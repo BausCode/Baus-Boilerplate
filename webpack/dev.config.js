@@ -8,7 +8,7 @@ var ROOT_PATH = path.resolve(__dirname);
 var BUILD_PATH = path.resolve(ROOT_PATH, '../public/dist');
 var APP_PATH = path.resolve(ROOT_PATH, '../app/app.js');
 var host = process.env.HOST || "0.0.0.0";
-var port = (process.env.PORT + 1) || 3001;
+var port = process.env.PORT || 3000;
 
 var config = {
   devtool: 'eval-source-map',
