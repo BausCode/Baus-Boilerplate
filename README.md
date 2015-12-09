@@ -23,18 +23,17 @@ Client side app for GitBaus
 .
 ├── App/                              # Main Application
 |   ├── Components/                   
-|   |   ├── Parent Component/         # Application Main Components ie. Homepage, Global Nav
-|   |   |   ├── Child Component/      # Smaller components part of parent - if needed
-|   |   |   |   ├── Component.js      #
-|   |   |   |   ├── Style.scss        # Component specific styles
-|   |   |   ├── Index.js              # Parent Componet
-|   |   |   ├── Style.scss            # Parent Styles - if needed
+|   |   ├── Component Group/          # Application Main Components ie. Homepage, Global Nav
+|   |   |   ├── Index.jsx             # Componet Entry Point
+|   |   |   ├── Component.jsx         # Child Component Incorporated in Index.jsx 
 |   |
 |   ├── Stylesheets/                  # Base Styles to be imported where needed
 |   |   ├── Animations/               # Animation mixins and easing functions
 |   |   ├── Defaults/                 # Default Global styles
 |   |   ├── Fonts/                    # Font Families
 |   |   ├── Mixins/                   # Mixin functions
+|   |   ├── Modules/                  # Module Styles for Different Components 
+|   |   |   ├── Component.scss        # Specific styles imported for a component 
 |   |   ├── Utilities/                # Utility sytles - ie. clearfix
 |   |   ├── Variables.scss            # Global variables
 |   |
@@ -44,8 +43,8 @@ Client side app for GitBaus
 |
 ├── Public                            # Public folder for output and static content
 |   ├── Dist                          # Output folder for generated application
-|   ├── Fonts                         # Font files
-|   ├── Images                        
+|   ├── Fonts                         # Font Files
+|   ├── Images                        # Image Location
 |
 ├── Server                            # Express Server Files
 |   ├── Dev.Server.js                 # Todo: Seperate Dev server requirements from main server
