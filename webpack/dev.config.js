@@ -6,23 +6,27 @@ var path = require('path');
 
 var ROOT_PATH = path.resolve(__dirname);
 var BUILD_PATH = path.resolve(ROOT_PATH, '../public/dist');
-var APP_PATH = path.resolve(ROOT_PATH, '../app/app.js');
+var APP_PATH = path.resolve(ROOT_PATH, '../app');
 var host = process.env.HOST || "0.0.0.0";
 var port = process.env.PORT || 3000;
 
 var config = {
   devtool: 'eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client?reload=true',
-    APP_PATH
-  ],
+  context: __dirname + '../app',
+  entry: {
+    app: [
+      'webpack-hot-middleware/client?reload=true',
+      APP_PATH + '/app.js'
+    ]
+  },
   output: {
     path: BUILD_PATH,
     publicPath: 'http://' + host + ':' + port + '/dist/',
     filename: 'app.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss']
+    extensions: ['', '.js', '.jsx', '.scss'],
+    root: APP_PATH
   },
   module: {
     loaders: [
@@ -33,8 +37,7 @@ var config = {
       },
       {
         test: /\.scss$/,
-        //loaders: ["style", "css", "autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true"]
-        loaders: ["style", "css", "sass"]
+        loaders: ['style', 'css', 'autoprefixer?browsers=last 2 version', 'sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true']
       },
       { 
         test: /\.(jpe?g|png|gif|svg)$/, 

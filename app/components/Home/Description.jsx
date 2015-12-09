@@ -4,11 +4,7 @@ class Description extends React.Component {
   render() {
     return (
       <div>
-        <p>This is a boilerplate built using Webpack, React, ES6, and prepared to be deployed via Docker.</p>
-        <strong>TODO:</strong>
-        <ul>
-          <li>Add Testing</li>
-        </ul>
+        <p>This is a boilerplate for Universal JS Apps using Webpack, React, ES6, Sass, and prepared to be deployed via Docker.</p>
       </div>
     );
   }

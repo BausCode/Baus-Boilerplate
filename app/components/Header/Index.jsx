@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from './Nav.jsx';
 
 if (process.env.BROWSER) {
-  require('../../stylesheets/modules/Header.scss');
+  require('stylesheets/modules/Header.scss');
 }
 
 class Title extends React.Component {
