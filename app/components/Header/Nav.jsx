@@ -1,10 +1,6 @@
 import React from 'react';
 import { IndexLink, Link } from 'react-router';
 
-if (process.env.BROWSER) {
-  require('./style.scss');
-}
-
 class Nav extends React.Component {
   render() {
     return (

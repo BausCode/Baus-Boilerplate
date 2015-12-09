@@ -1,7 +1,11 @@
-@import "../../stylesheets/variables.scss";
+@import "../variables.scss";
+
+.heading-main {
+  margin: 1em 0;
+}
 
 .nav-list {
-  margin: 0;
+  margin: 1em 0;
   padding: 0;
 }
 

@@ -1,6 +1,10 @@
 import React from 'react';
-import Title from './components/Title';
-import Description from './components/Description';
+import Title from './Title';
+import Description from './Description';
+
+if (process.env.BROWSER) {
+  require('../../stylesheets/modules/Page.scss');
+}
 
 class Main extends React.Component {
   render () {

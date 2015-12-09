@@ -1,10 +1,14 @@
 import React from 'react';
 
+if (process.env.BROWSER) {
+  require('../../stylesheets/modules/Page.scss');
+}
+
 class Page2 extends React.Component {
   render () {
     return ( 
       <div>
-        <h2>Page 2 Something</h2>
+        <h2 className="pageTitle">Page 2 Something</h2>
       </div>
     );
   }

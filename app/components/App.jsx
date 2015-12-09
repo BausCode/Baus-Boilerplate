@@ -1,15 +1,11 @@
 import React from 'react';
-import Title from './Title';
-import Nav from './Nav/Nav';
+import Header from './Header/Index';
 
 class App extends React.Component {
   render () {
     return (
       <main>
-        <header>
-          <Title />
-          <Nav />
-        </header>
+        <Header />
         { this.props.children }
       </main>
     );
