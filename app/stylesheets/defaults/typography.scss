@@ -1,6 +1,7 @@
 // 01._typography.scss
-@import 'compass/css3/font-face';
-
+@import '../variables.scss';
+@import '../mixins/headings.scss';
+@import '../functions/general.scss';
 
 /********************************************************** Typography */
 

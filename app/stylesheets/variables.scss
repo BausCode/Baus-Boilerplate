@@ -1,6 +1,7 @@
 // _variables.scss
 //   NOTE: Variables should be named general to specific
 
+@import 'functions/general.scss';
 
 // Breakpoints
 // NOTE: When updating make sure to sync with JS variables (/source/js/apps/master/app.js)

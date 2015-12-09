@@ -1,4 +1,5 @@
 // 00.global.scss
+@import '../variables.scss';
 
 /********************************************************** Viewport */
 
@@ -18,7 +19,7 @@
 */
 
 html {
-  @include box-sizing('border-box');
+  box-sizing: 'border-box';
 }
 
 *,
