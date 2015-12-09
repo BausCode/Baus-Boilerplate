@@ -1,4 +1,5 @@
 import React from 'react';
+import { IndexLink, Link } from 'react-router';
 
 if (process.env.BROWSER) {
   require('./style.scss');
@@ -8,9 +9,13 @@ class Nav extends React.Component {
   render() {
     return (
       <nav>
-        <ul className="nav-list">
-          <li className="nav-list-item"><a href="/" className="nav-item-link">Home</a></li>
-          <li className="nav-list-item"><a href="/page2" className="nav-item-link">Page 2</a></li>
+        <ul className='nav-list'>
+          <li className='nav-list-item'>
+            <IndexLink to={'/'} className='nav-item-link' activeClassName='active'>Home</IndexLink>
+          </li>
+          <li className='nav-list-item'>
+            <Link to={'/page2'} className='nav-item-link' activeClassName='active'>Page 2</Link>
+          </li>
         </ul>
       </nav>
     );
