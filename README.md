@@ -80,6 +80,7 @@ if (process.env.BROWSER) {
 
 ## TODO
 - Decouple Dev server setup for Server.js
+- Split code into chunks for different pages with webpack and include through [react router](https://github.com/rackt/react-router/blob/master/docs/guides/advanced/DynamicRouting.md)
 - Add testing
 - incorporate Redux
 
