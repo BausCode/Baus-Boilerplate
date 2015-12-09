@@ -2,22 +2,22 @@ GitBaus
 ------
 Client side app for GitBaus
 
-## Requirements
+### Requirements
 * [Node.js v5](https://nodejs.org/en/download/)
 
 
-## Quick Start
+### Quick Start
 * `npm install`
 * `npm run dev`
 
 
-## Production
+### Production
 * `npm install`
 * `npm run dist`
 * `npm run prod`
 
 
-## Structure
+### Structure
 
 ```bash
 .
@@ -26,6 +26,7 @@ Client side app for GitBaus
 |   |   ├── Component Group/          # Application Main Components ie. Homepage, Global Nav
 |   |   |   ├── Index.jsx             # Componet Entry Point
 |   |   |   ├── Component.jsx         # Child Component Incorporated in Index.jsx 
+|   |   ├── Component.jsx             # Single Component
 |   |
 |   ├── Stylesheets/                  # Base Styles to be imported where needed
 |   |   ├── Animations/               # Animation mixins and easing functions
@@ -77,13 +78,14 @@ if (process.env.BROWSER) {
 }
 ```
 
-## TODO
+### TODO
 - Incorporate Redux for handling state
 - Decouple Dev server setup for Server.js
 - Split code into chunks for different pages with webpack and include through [react router](https://github.com/rackt/react-router/blob/master/docs/guides/advanced/DynamicRouting.md)
+- Evaluate the CSS/SCSS setup and handling / consider [Michael Chan - Inline Styles](https://www.youtube.com/watch?v=ERB1TJBn32c) / explore [CSS-Modules](https://github.com/css-modules/css-modules) / [Radium](https://github.com/FormidableLabs/radium) / [React-Style](https://github.com/js-next/react-style)
 - Add testing
 
 
-## Built with Inspiration from: 
+### Built with Inspiration from: 
 - [Isomorphic500](https://github.com/gpbl/isomorphic500)
 - [The Ultimate Webpack Setup](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup)
