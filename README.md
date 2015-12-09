@@ -20,6 +20,8 @@ This is a boilerplate for isomorphic React apps using Express, Webpack, React, E
 
 ## Structure
 
+```bash
+.
 ├── App/                              # Main Application
 |   ├── Components/                   
 |   |   ├── Parent Component/         # Application Main Components ie. Homepage, Global Nav
@@ -55,6 +57,7 @@ This is a boilerplate for isomorphic React apps using Express, Webpack, React, E
 |   ├── Production.Config.js          # Production Output config to generate final files
 |
 ├── Index.js                          # Express App Entry Point
+```
 
 ### Webpack
 
