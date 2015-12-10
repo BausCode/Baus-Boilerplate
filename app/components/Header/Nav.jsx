@@ -10,7 +10,7 @@ class Nav extends React.Component {
             <IndexLink to={'/'} className='nav-item-link' activeClassName='active'>Dashboard</IndexLink>
           </li>
           <li className='nav-list-item'>
-            <Link to={'/page2'} className='nav-item-link' activeClassName='active'>Settings</Link>
+            <Link to={'/settings'} className='nav-item-link' activeClassName='active'>Settings</Link>
           </li>
         </ul>
       </nav>
