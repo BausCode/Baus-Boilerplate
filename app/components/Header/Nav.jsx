@@ -4,13 +4,13 @@ import { IndexLink, Link } from 'react-router';
 class Nav extends React.Component {
   render() {
     return (
-      <nav>
+      <nav className='header--main-nav'>
         <ul className='nav-list'>
           <li className='nav-list-item'>
-            <IndexLink to={'/'} className='nav-item-link' activeClassName='active'>Home</IndexLink>
+            <IndexLink to={'/'} className='nav-item-link' activeClassName='active'>Dashboard</IndexLink>
           </li>
           <li className='nav-list-item'>
-            <Link to={'/page2'} className='nav-item-link' activeClassName='active'>Page 2</Link>
+            <Link to={'/page2'} className='nav-item-link' activeClassName='active'>Settings</Link>
           </li>
         </ul>
       </nav>

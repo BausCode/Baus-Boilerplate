@@ -1,7 +1,7 @@
 import React from 'react';
 
 if (process.env.BROWSER) {
-  require('../../stylesheets/modules/Page.scss');
+  require('stylesheets/modules/Page.scss');
 }
 
 class Page2 extends React.Component {

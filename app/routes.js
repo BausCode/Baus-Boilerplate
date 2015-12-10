@@ -1,5 +1,5 @@
 import App from './components/App';
-import Home from './components/Home/Index';
+import Dashboard from './components/Dashboard/Index';
 import Page2 from './components/Page2/Index';
 import NoMatch from './components/NoMatch';
 
@@ -7,9 +7,9 @@ export default [
   {
     path: '/',
     component: App,
-    indexRoute: { component: Home },
+    indexRoute: { component: Dashboard },
     childRoutes: [
-      { path: '/', component: Home },
+      { path: '/', component: Dashboard },
       { path: 'page2', component: Page2 },
       { path: '*', component: NoMatch }
     ]

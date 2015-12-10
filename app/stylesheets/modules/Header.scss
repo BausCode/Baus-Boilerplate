@@ -1,11 +1,29 @@
 @import '../variables.scss';
 
-.heading-main {
-  margin: 1em 0;
+.header--main {
+  background: #34a3e5;
+  left: 0;
+  padding: $space/2 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  h1 {
+    color: $white;
+    display: inline-block;
+    font-size: $font-size-3;
+    padding: 0 $space;
+  }
+}
+
+.header--main-nav {
+  display: inline-block;
+  float: right;
+  padding: 0 $space;
 }
 
 .nav-list {
-  margin: 1em 0;
   padding: 0;
 }
 
@@ -15,16 +33,16 @@
 }
 
 .nav-item-link {
-  border: 1px solid $grey;
-  background: $white;
-  color: $grey;
-  padding: 0.5em;
+  background: transparent;
+  border-radius: 5px;
+  color: $white;
+  font-size: $font-size-7;
+  padding: $space/4 $space/2;
   text-decoration: none;
   text-transform: uppercase;
 
   &.active,
   &:hover {
-    background: $grey;
-    color: $white;
+    background: #85c7ef;
   }
 }

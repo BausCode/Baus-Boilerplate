@@ -8,8 +8,8 @@ if (process.env.BROWSER) {
 class Title extends React.Component {
   render() {
     return (
-      <header>
-        <h1 className='heading-main'>GitBaus</h1>
+      <header className='header--main'>
+        <h1>GitBaus</h1>
         <Nav />
       </header>
     );
