@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import Header from './Header/Index';
-import Sidebar from './Sidebar/Index';
 
 if (process.env.BROWSER) {
   require('stylesheets/defaults/content.scss');
 }
 
-class App extends React.Component {
+class App extends Component {
+  static propTypes = {
+    children: PropTypes.element.isRequired
+  };
+
   render () {
     return (
       <main>
         <Header />
-        <Sidebar />
         <div className='content'>
           { this.props.children }
         </div>

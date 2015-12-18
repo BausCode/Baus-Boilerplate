@@ -1,14 +1,24 @@
 import React from 'react';
-import globalStyles from './stylesheets/defaults/base-global.scss';
-import typography from './stylesheets/defaults/typography.scss';
 import { render } from 'react-dom';
-import { Router, IndexRoute, Route } from 'react-router';
+import { Provider } from 'react-redux';
+import { Router } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import routes from './routes';
+import configureStore from './store/configureStore';
+
+import globalStyles from './stylesheets/defaults/base-global.scss';
+import typography from './stylesheets/defaults/typography.scss';
 
 console.log('%c App Started', 'color:green');
 
-let history = createBrowserHistory();
-let element = document.getElementById('app');
+const store = configureStore();
+const history = createBrowserHistory();
 
-render(<Router history={history}>{routes}</Router>, element);
+render(
+  <Provider store={store}>
+    <Router history={history}>
+    {routes}
+    </Router>
+  </Provider>, 
+  document.getElementById('app')
+);

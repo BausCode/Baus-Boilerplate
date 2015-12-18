@@ -7,6 +7,7 @@ Client side app for GitBaus
 
 
 ### Quick Start
+* `npm install -g babel babel-cli`
 * `npm install`
 * `npm run dev`
 

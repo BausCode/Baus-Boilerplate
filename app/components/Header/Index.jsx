@@ -9,7 +9,7 @@ class Title extends React.Component {
   render() {
     return (
       <header className='header--main'>
-        <h1>GitBaus</h1>
+        <h1>BausCode</h1>
         <Nav />
       </header>
     );

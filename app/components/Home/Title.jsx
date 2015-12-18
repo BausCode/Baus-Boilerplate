@@ -2,7 +2,7 @@ import React from 'react';
 
 class Title extends React.Component {
   render() {
-    return <h2 className='pageTitle'>Main Page</h2>;
+    return <h2 className='pageTitle'>Home Page</h2>;
   }
 };
 
