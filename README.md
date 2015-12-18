@@ -1,6 +1,6 @@
-GitBaus
+React Boilerplate
 ------
-Client side app for GitBaus
+Boilerplate for Universal JS applications with React, Webkit, Redux, and Express.
 
 ### Requirements
 * [Node.js v5](https://nodejs.org/en/download/)
@@ -80,7 +80,6 @@ if (process.env.BROWSER) {
 ```
 
 ### TODO
-- Incorporate Redux for handling state
 - Decouple Dev server setup for Server.js
 - Split code into chunks for different pages with webpack and include through [react router](https://github.com/rackt/react-router/blob/master/docs/guides/advanced/DynamicRouting.md)
 - Evaluate the CSS/SCSS setup and handling / consider [Michael Chan - Inline Styles](https://www.youtube.com/watch?v=ERB1TJBn32c) / explore [CSS-Modules](https://github.com/css-modules/css-modules) / [Radium](https://github.com/FormidableLabs/radium) / [React-Style](https://github.com/js-next/react-style)
