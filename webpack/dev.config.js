@@ -15,6 +15,7 @@ var config = {
   context: __dirname + '../app',
   entry: {
     app: [
+      'eventsource-polyfill', // necessary for hot reloading with IE
       'webpack-hot-middleware/client?reload=true',
       APP_PATH + '/app.js'
     ]
@@ -33,7 +34,18 @@ var config = {
       {
         test: /\.js?$|\.jsx?$/,
         loader: 'babel',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        query: {
+          plugins: [
+            ["react-transform", {
+              "transforms": [{
+                "transform": "react-transform-hmr",
+                "imports": ["react"],
+                "locals": ["module"]
+              }]
+            }]
+          ]
+        }
       },
       {
         test: /\.scss$/,
@@ -46,7 +58,9 @@ var config = {
     ]
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
         BROWSER: JSON.stringify(true)

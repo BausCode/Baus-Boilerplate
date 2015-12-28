@@ -63,14 +63,13 @@ Boilerplate for Universal JS applications with React, Webkit, Redux, and Express
 
 Webpack is used as commonjs module bundler, css builder (using sass-loader) and assets loader (images and svg files).
 
-The [development config](./webpack/dev.config.js) enables source maps, the [Hot Module Replacement](http://webpack.github.io/docs/hot-module-replacement.html) and [react-hot-loader](http://gaearon.github.io/react-hot-loader/). It loads CSS styles with `<style>`, to enable styles live reload). This config is used by the [webpack-dev-server](webpack/server.js), serving the files bundled by Webpack.
+#### Development Config
+* Enables source maps
+* [Hot Module Replacement](http://webpack.github.io/docs/hot-module-replacement.html) - Adds JS and CSS updates to page without reload or state change
+* [webpack-error-notification](https://github.com/vsolovyov/webpack-error-notification) plugin. To get notified on errors while compiling the code, on Mac you must `brew install terminal-notifier`.
 
-> This config uses the [webpack-error-notification](https://github.com/vsolovyov/webpack-error-notification)
-> plugin. To get notified on errors while compiling the code, on Mac you must `brew install terminal-notifier`.
-
-The [production config](./webpack/prod.config.js) builds the client-side production bundle from `npm run build`.
-
-Both configs set a `process.env.BROWSER` global variable, useful to require CSS from the components, e.g:
+#### CSS Loading
+In order to load CSS inline and prevent any FOUC both configs set a `process.env.BROWSER` global variable, useful to require CSS from the components, e.g:
 
 ```js
 // MyComponent
@@ -87,5 +86,6 @@ if (process.env.BROWSER) {
 
 
 ### Built with Inspiration from: 
+- [React Redux Universal Hot Example](https://github.com/erikras/react-redux-universal-hot-example)
 - [Isomorphic500](https://github.com/gpbl/isomorphic500)
 - [The Ultimate Webpack Setup](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup)

@@ -1,8 +1,8 @@
 {
   "presets": [
+    "react",
     "es2015", 
-    "stage-0",
-    "react"
+    "stage-0"
   ],
 
   "plugins": [
@@ -10,19 +10,18 @@
   ],
 
   "env": {
-  // TODO: Uncomment when Babel-Plugin-React-Transform ready for Babel 6
-    /*"development": {*/
-      /*"plugins": ["react-transform"],*/
-      /*"extra": {*/
-        /*"react-transform": {*/
-          /*"transforms": [{*/
-            /*"transform": "react-transform-hmr",*/
-            /*"transform": "react-transform-catch-errors",*/
-            /*"imports": ["react"],*/
-            /*"locals": ["module"]*/
-          /*}]*/
-        /*}*/
-      /*}*/
-    /*}*/
+    "development": {
+      "plugins": [
+        ["react-transform", {
+          "transforms": [{
+            "transform": "react-transform-catch-errors",
+            "imports": [
+              "react", 
+              "redbox-react"
+            ]
+          }]
+        }]
+      ]
+    }
   }
 }
