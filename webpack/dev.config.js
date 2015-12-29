@@ -1,7 +1,8 @@
 'use strict';
 
-var webpack = require ('webpack');
+var webpack = require('webpack');
 var WebpackErrorNotificationPlugin = require('webpack-error-notification');
+var babelrc = require('./hmr.config'); 
 var path = require('path');
 
 var ROOT_PATH = path.resolve(__dirname);
@@ -9,6 +10,7 @@ var BUILD_PATH = path.resolve(ROOT_PATH, '../public/dist');
 var APP_PATH = path.resolve(ROOT_PATH, '../app');
 var host = process.env.HOST || "0.0.0.0";
 var port = process.env.PORT || 3000;
+
 
 var config = {
   devtool: 'eval-source-map',
@@ -33,19 +35,8 @@ var config = {
     loaders: [
       {
         test: /\.js?$|\.jsx?$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-        query: {
-          plugins: [
-            ["react-transform", {
-              "transforms": [{
-                "transform": "react-transform-hmr",
-                "imports": ["react"],
-                "locals": ["module"]
-              }]
-            }]
-          ]
-        }
+        loaders: ['babel?' + JSON.stringify(babelrc), 'eslint'],
+        exclude: /node_modules/
       },
       {
         test: /\.scss$/,

@@ -8,6 +8,6 @@ class Description extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default Description;

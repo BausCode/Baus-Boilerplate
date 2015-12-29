@@ -14,6 +14,6 @@ class Title extends React.Component {
       </header>
     );
   }
-};
+}
 
 export default Title;
