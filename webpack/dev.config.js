@@ -43,8 +43,12 @@ var config = {
         loaders: ['style', 'css', 'autoprefixer?browsers=last 2 version', 'sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true']
       },
       { 
-        test: /\.(jpe?g|png|gif|svg)$/, 
-        loader: "file" 
+        test: /\.(jpg|jpeg|png|gif|svg)$/, 
+        loaders: ['url?limit=25000', 'img']
+      },
+      {
+        test: /\.(eot|woff|woff2|ttf|svg)$/, 
+        loader: 'url?limit=20000'
       }
     ]
   },
