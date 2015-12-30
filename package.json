@@ -59,6 +59,7 @@
     "modernizr-webpack-plugin": "^1.0.5",
     "node-sass": "^3.4.2",
     "postcss-loader": "^0.8.0",
+    "react-transform-catch-errors": "^1.0.1",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.2.0",
     "redux-devtools": "^3.0.0",
