@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Header from './Header/Index';
 
 if (process.env.BROWSER) {
-  require('stylesheets/defaults/content.scss');
+  require('../stylesheets/defaults/content.scss');
 }
 
 class App extends Component {
