@@ -1,7 +1,9 @@
 'use strict';
 
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
 var WebpackErrorNotificationPlugin = require('webpack-error-notification');
+var ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
 var babelrc = require('./hmr.config'); 
 var path = require('path');
 
@@ -11,6 +13,14 @@ var APP_PATH = path.resolve(ROOT_PATH, '../app');
 var host = process.env.HOST || "0.0.0.0";
 var port = process.env.PORT || 3000;
 
+var modernizrConfig = {
+  'feature-detects': [
+    'input',
+    'canvas',
+    'css/resize'
+  ],
+  'filename': 'modernizr-custom.js'
+};
 
 var config = {
   devtool: 'eval-source-map',
@@ -40,7 +50,7 @@ var config = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'autoprefixer?browsers=last 2 version', 'sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true']
+        loaders: ['style', 'css', 'postcss', 'sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true']
       },
       { 
         test: /\.(jpg|jpeg|png|gif|svg)$/, 
@@ -53,15 +63,21 @@ var config = {
     ]
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
         BROWSER: JSON.stringify(true)
       }
     }),
+    new ModernizrWebpackPlugin(modernizrConfig),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     new WebpackErrorNotificationPlugin()
+  ],
+  postcss: [
+    autoprefixer({
+      browsers: ['last 2 versions']
+    })
   ]
 };
 

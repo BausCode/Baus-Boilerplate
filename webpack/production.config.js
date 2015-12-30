@@ -3,15 +3,26 @@
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
 var path = require('path');
 
 var BUILD_PATH = path.resolve(__dirname, '../public/dist');
 var APP_PATH = path.resolve(__dirname, '../app/app.js');
+
 var sassLoaders = [
-  'css-loader',
-  'postcss-loader',
-  'sass-loader?includePaths[]=' + path.resolve(__dirname, '../app')
-]
+  'css',
+  'postcss',
+  'sass?outputStyle=compressed&includePaths[]=' + path.resolve(__dirname, '../app')
+];
+
+var modernizrConfig = {
+  'feature-detects': [
+    'input',
+    'canvas',
+    'css/resize'
+  ],
+  'filename': 'modernizr-custom.js'
+};
 
 var configs = {
   devtool: 'source-map',
@@ -21,7 +32,8 @@ var configs = {
     filename: "app.js"
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss']
+    extensions: ['', '.js', '.jsx', '.scss'],
+    root: APP_PATH
   },
   module: {
     loaders: [
@@ -37,12 +49,13 @@ var configs = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('app.css'),
     new webpack.DefinePlugin({
       "process.env": {
         BROWSER: JSON.stringify(true)
       }
     }),
+    new ExtractTextPlugin('app.css'),
+    new ModernizrWebpackPlugin(modernizrConfig)
   ],
   postcss: [
     autoprefixer({
