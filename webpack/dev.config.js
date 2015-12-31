@@ -15,12 +15,12 @@ var host = process.env.HOST || "0.0.0.0";
 var port = process.env.PORT || 3000;
 
 var config = {
+  context: APP_PATH,
   devtool: 'eval-source-map',
-  context: __dirname + '../app',
   entry: {
     app: [
       'eventsource-polyfill', // necessary for hot reloading with IE
-      'webpack-hot-middleware/client?reload=true',
+      'webpack-hot-middleware/client',
       APP_PATH + '/app.js'
     ]
   },

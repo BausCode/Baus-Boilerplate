@@ -8,7 +8,7 @@ var modernizrConfig = require('./modernizr.config');
 var path = require('path');
 
 var BUILD_PATH = path.resolve(__dirname, '../public/dist');
-var APP_PATH = path.resolve(__dirname, '../app/app.js');
+var APP_PATH = path.resolve(__dirname, '../app');
 
 var sassLoaders = [
   'css',
@@ -18,14 +18,13 @@ var sassLoaders = [
 
 var configs = {
   devtool: 'source-map',
-  entry: APP_PATH,
+  entry: APP_PATH + '/app.js',
   output: {
     path: BUILD_PATH,
     filename: "app.js"
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss'],
-    root: APP_PATH
+    extensions: ['', '.js', '.jsx', '.scss']
   },
   module: {
     loaders: [

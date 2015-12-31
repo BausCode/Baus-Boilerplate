@@ -17,6 +17,9 @@ Boilerplate for Universal JS applications with React, Webkit, Redux, and Express
 * `npm run dist`
 * `npm run prod`
 
+### Docker
+* Build container and change name or version tag as needed `docker build -t react-boilerplate:1.0 .`
+* Run container and change ports as needed `docker run --rm -it -v $(pwd):/var/www/dist -p 3000:3000 react-boilerplate:1.0`
 
 ### Structure
 
