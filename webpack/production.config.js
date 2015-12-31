@@ -47,7 +47,8 @@ var configs = {
       }
     }),
     new ExtractTextPlugin('app.css'),
-    new ModernizrWebpackPlugin(modernizrConfig)
+    new ModernizrWebpackPlugin(modernizrConfig),
+    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } })
   ],
   postcss: [
     autoprefixer({
