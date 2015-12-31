@@ -1,4 +1,7 @@
-// To Enable HMR with Universal App
+/*
+ * To Enable HMR with Universal App
+ */
+
 var fs = require('fs');
 var babelrc = fs.readFileSync('./.babelrc');
 var babelrcObject = {};

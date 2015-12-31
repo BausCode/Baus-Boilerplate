@@ -1,3 +1,12 @@
+/*
+ * Modernizr Webpack Plugin Confige
+ * https://www.npmjs.com/package/modernizr-webpack-plugin
+ *
+ * Options:
+ * https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json
+ *
+ */
+
 module.exports = {
 
   'feature-detects': [
