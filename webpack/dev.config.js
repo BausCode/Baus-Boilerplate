@@ -4,7 +4,8 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var WebpackErrorNotificationPlugin = require('webpack-error-notification');
 var ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
-var babelrc = require('./hmr.config'); 
+var hmrConfig = require('./hmr.config'); 
+var modernizrConfig = require('./modernizr.config');
 var path = require('path');
 
 var ROOT_PATH = path.resolve(__dirname);
@@ -12,15 +13,6 @@ var BUILD_PATH = path.resolve(ROOT_PATH, '../public/dist');
 var APP_PATH = path.resolve(ROOT_PATH, '../app');
 var host = process.env.HOST || "0.0.0.0";
 var port = process.env.PORT || 3000;
-
-var modernizrConfig = {
-  'feature-detects': [
-    'input',
-    'canvas',
-    'css/resize'
-  ],
-  'filename': 'modernizr-custom.js'
-};
 
 var config = {
   devtool: 'eval-source-map',
@@ -34,7 +26,7 @@ var config = {
   },
   output: {
     path: BUILD_PATH,
-    publicPath: 'http://' + host + ':' + port + '/dist/',
+    publicPath: 'http://' + host + ':' + port + '/dist',
     filename: 'app.js'
   },
   resolve: {
@@ -45,7 +37,7 @@ var config = {
     loaders: [
       {
         test: /\.js?$|\.jsx?$/,
-        loaders: ['babel?' + JSON.stringify(babelrc), 'eslint'],
+        loaders: ['babel?' + JSON.stringify(hmrConfig), 'eslint'],
         exclude: /node_modules/
       },
       {

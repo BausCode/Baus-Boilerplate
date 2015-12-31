@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
+var modernizrConfig = require('./modernizr.config');
 var path = require('path');
 
 var BUILD_PATH = path.resolve(__dirname, '../public/dist');
@@ -14,15 +15,6 @@ var sassLoaders = [
   'postcss',
   'sass?outputStyle=compressed&includePaths[]=' + path.resolve(__dirname, '../app')
 ];
-
-var modernizrConfig = {
-  'feature-detects': [
-    'input',
-    'canvas',
-    'css/resize'
-  ],
-  'filename': 'modernizr-custom.js'
-};
 
 var configs = {
   devtool: 'source-map',
