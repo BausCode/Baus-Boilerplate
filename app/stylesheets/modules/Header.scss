@@ -1,9 +1,10 @@
 @import '../variables.scss';
+@import '../mixins/mq.scss';
 
 .header--main {
   background: #34a3e5;
   left: 0;
-  padding: $space/2 0;
+  padding: $space 0;
   top: 0;
   width: 100%;
   z-index: 10;
@@ -18,8 +19,12 @@
 
 .header--main-nav {
   display: inline-block;
-  float: right;
-  padding: 0 $space;
+  padding: $space/2 $space/3;
+
+  @include mq($S) {
+    float: right;
+    padding: 0 $space;
+  }
 }
 
 .nav-list {
