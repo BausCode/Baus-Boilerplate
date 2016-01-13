@@ -17,7 +17,6 @@ var sassLoaders = [
 ];
 
 var configs = {
-  devtool: 'source-map',
   entry: APP_PATH + '/app.js',
   output: {
     path: BUILD_PATH,
