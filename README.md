@@ -6,13 +6,13 @@ Boilerplate for Universal JS applications with React, Webkit, Redux, and Express
 * [Node.js v5](https://nodejs.org/en/download/)
 
 
-### Quick Start
+### Quick Dev Start
 * `npm install -g babel babel-cli`
 * `npm install`
 * `npm run dev`
 
 
-### Production
+### Production Start
 * `npm install`
 * `npm run dist`
 * `npm run prod`
@@ -79,17 +79,16 @@ Webpack is used as commonjs module bundler, css builder (using sass-loader) and 
 In order to load CSS inline and prevent any FOUC both configs set a `process.env.BROWSER` global variable, useful to require CSS from the components, e.g:
 
 ```js
-// MyComponent
-if (process.env.BROWSER) {
-  require('../style/MyComponent.scss');
-}
+  if (process.env.BROWSER) {
+    require('../style/MyComponent.scss');
+  }
 ```
 
 ### TODO
 - Decouple Dev server setup for Server.js
+- TDD / BDD
 - Split code into chunks for different pages with webpack and include through [react router](https://github.com/rackt/react-router/blob/master/docs/guides/advanced/DynamicRouting.md)
 - Evaluate the CSS/SCSS setup and handling / consider [Michael Chan - Inline Styles](https://www.youtube.com/watch?v=ERB1TJBn32c) / explore [CSS-Modules](https://github.com/css-modules/css-modules) / [Radium](https://github.com/FormidableLabs/radium) / [React-Style](https://github.com/js-next/react-style)
-- Add testing
 
 
 ### Built with Inspiration from: 

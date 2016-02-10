@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "main": "index.js",
+
   "scripts": {
     "dev": "babel-node index",
     "postinstall": "npm run dist",
