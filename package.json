@@ -61,7 +61,7 @@
     "webpack": "^1.12.9"
   },
 
-  "XXXdevDependencies": {
+  "devDependencies": {
     "babel": "^6.3.13",
     "babel-cli": "^6.3.17",
     "babel-eslint": "^4.1.6",
