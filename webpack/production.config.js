@@ -41,7 +41,8 @@ var configs = {
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
-        BROWSER: JSON.stringify(true)
+        BROWSER: JSON.stringify(true),
+        NODE_ENV: JSON.stringify('production')
       }
     }),
     new ExtractTextPlugin('app.css'),
