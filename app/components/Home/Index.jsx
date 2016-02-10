@@ -1,6 +1,6 @@
 import React from 'react';
-import Title from './Title';
-import Description from './Description';
+import Title from './Title.jsx';
+import Description from './Description.jsx';
 
 if (process.env.BROWSER) {
   require('../../stylesheets/modules/Dashboard.scss');
