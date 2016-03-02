@@ -1,9 +1,9 @@
 import React from 'react';
-import Title from './Title.jsx';
-import Description from './Description.jsx';
+import Title from '../components/Home/Title.jsx';
+import Description from '../components/Home/Description.jsx';
 
 if (process.env.BROWSER) {
-  require('../../stylesheets/modules/Dashboard.scss');
+  require('../stylesheets/modules/Dashboard.scss');
 }
 
 class Main extends React.Component {

@@ -1,15 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import Header from './Header/Index';
+import Header from '../components/Header.jsx';
 
 if (process.env.BROWSER) {
   require('../stylesheets/defaults/content.scss');
 }
 
 class App extends Component {
-  static propTypes = {
-    children: PropTypes.element.isRequired
-  };
-
   render () {
     return (
       <main>
@@ -21,5 +17,9 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  children: PropTypes.element.isRequired
+};
 
 export default App;
