@@ -8,7 +8,7 @@ import routes from '../app/routes';
 
 const isDev = process.env.NODE_ENV !== 'production';
 const env  = isDev ? 'development' : process.env.NODE_ENV;
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const host = process.env.HOST || '0.0.0.0';
 
 const publicPath = path.resolve(__dirname, '../public');
@@ -98,4 +98,3 @@ module.exports = {
     });
   }
 }
-
