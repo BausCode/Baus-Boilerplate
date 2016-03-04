@@ -38,12 +38,12 @@
     "css-loader": "^0.23.0",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
-    "express-handlebars": "^2.0.1",
-    "extract-text-webpack-plugin": "^0.9.1",
+    "express-handlebars": "^3.0.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "fs": "0.0.2",
-    "history": "^1.13.1",
-    "html-webpack-plugin": "^1.6.2",
+    "history": "^2.0.0",
+    "html-webpack-plugin": "^2.9.0",
     "img-loader": "^1.2.2",
     "modernizr-webpack-plugin": "^1.0.5",
     "node-sass": "^3.4.2",
@@ -52,7 +52,7 @@
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-redux": "^4.0.6",
-    "react-router": "^1.0.3",
+    "react-router": "^2.0.0",
     "redbox-react": "^1.2.0",
     "redux": "^3.0.5",
     "redux-thunk": "^1.0.2",
@@ -65,10 +65,10 @@
   "devDependencies": {
     "babel": "^6.3.13",
     "babel-cli": "^6.3.17",
-    "babel-eslint": "^4.1.6",
-    "eslint": "^1.10.3",
+    "babel-eslint": "^5.0.0",
+    "eslint": "^2.2.0",
     "eslint-loader": "^1.1.1",
-    "eslint-plugin-react": "^3.13.1",
+    "eslint-plugin-react": "^4.1.0",
     "react-transform-catch-errors": "^1.0.1",
     "react-transform-hmr": "^1.0.1",
     "redux-devtools": "^3.0.0",
@@ -76,6 +76,6 @@
     "redux-devtools-log-monitor": "^1.0.1",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-error-notification": "^0.1.5",
-    "webpack-hot-middleware": "^2.5.0"
+    "webpack-hot-middleware": "^2.9.0"
   }
 }
