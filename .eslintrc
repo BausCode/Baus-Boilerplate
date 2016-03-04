@@ -6,33 +6,35 @@
     ],
     "quotes": [
       1,
-      "single"
+    "single"
     ],
     "linebreak-style": [
       1,
-      "unix"
+    "unix"
     ],
     "no-console": 0,
     "react/prop-types": 1,
     "react/jsx-uses-react": 1,
     "semi": [
       2,
-      "always"
+    "always"
     ],
   },
-    "env": {
-      "es6": true,
-      "node": true,
-      "browser": true
-    },
-    "extends": "eslint:recommended",
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
       "modules": true,
       "experimentalObjectRestSpread": true
-    },
-    "parser": "babel-eslint",
-    "plugins": [
-      "react"
-    ]
+    }
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"]
 }
