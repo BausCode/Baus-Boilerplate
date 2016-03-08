@@ -8,7 +8,7 @@ import routes from '../app/routes';
 
 const isDev = process.env.NODE_ENV !== 'production';
 const env  = isDev ? 'development' : process.env.NODE_ENV;
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const host = process.env.HOST || '0.0.0.0';
 
 const publicPath = path.resolve(__dirname, '../public');
@@ -33,28 +33,7 @@ module.exports = {
     server.set('view engine', '.hbs');
 
     if (isDev) {
-      let config = require('../webpack/dev.config');
-      let webpack = require('webpack');
-      let webpackMiddleware = require('webpack-dev-middleware');
-      let webpackHotMiddleware = require('webpack-hot-middleware');
-
-      const compiler = webpack(config);
-      const middleware = webpackMiddleware(compiler, {
-        publicPath: config.output.publicPath,
-        contentBase: `http://${host}:${port+1}`,
-        headers: { "Access-Control-Allow-Origin": "*" },
-        stats: {
-          colors: true,
-          hash: false,
-          timings: true,
-          chunks: false,
-          chunkModules: false,
-          modules: false
-        }
-      });
-
-      server.use(middleware);
-      server.use(webpackHotMiddleware(compiler));
+      require('./dev.server.js')(server);
     }
 
     server.use(express.static(publicPath));
