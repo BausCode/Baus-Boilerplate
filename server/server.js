@@ -46,12 +46,9 @@ module.exports = {
         else if (redirectLocation) {
           res.redirect(302, redirectLocation.pathname + redirectLocation.search);
         }
-        else if (renderProps && !isDev) {
+        else if (renderProps) {
           let html = renderToString(<RoutingContext {...renderProps} />);
           res.status(200).render('main', {env: env, content: html});
-        }
-        else if (renderProps && isDev) {
-          res.status(200).render('main', {env: env});
         }
         else {
           res.status(404).render('404');
