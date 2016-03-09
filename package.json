@@ -16,8 +16,8 @@
   },
 
   "engines": {
-    "node": "=5.5.0",
-    "npm": "=3.3.12"
+    "node": "=5.7.1",
+    "npm": "=3.6.0"
   },
 
   "repository": {
@@ -38,21 +38,21 @@
     "css-loader": "^0.23.0",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
-    "express-handlebars": "^2.0.1",
-    "extract-text-webpack-plugin": "^0.9.1",
+    "express-handlebars": "^3.0.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "fs": "0.0.2",
-    "history": "^1.13.1",
-    "html-webpack-plugin": "^1.6.2",
+    "history": "^2.0.1",
+    "html-webpack-plugin": "^2.9.0",
     "img-loader": "^1.2.2",
     "modernizr-webpack-plugin": "^1.0.5",
     "node-sass": "^3.4.2",
     "path": "^0.12.7",
     "postcss-loader": "^0.8.0",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
     "react-redux": "^4.0.6",
-    "react-router": "^1.0.3",
+    "react-router": "^2.0.0",
     "redbox-react": "^1.2.0",
     "redux": "^3.0.5",
     "redux-thunk": "^1.0.2",

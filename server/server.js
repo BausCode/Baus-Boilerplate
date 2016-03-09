@@ -3,7 +3,7 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { match, RoutingContext } from 'react-router';
+import { match, RouterContext } from 'react-router';
 import routes from '../app/routes';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -47,7 +47,7 @@ module.exports = {
           res.redirect(302, redirectLocation.pathname + redirectLocation.search);
         }
         else if (renderProps) {
-          let html = renderToString(<RoutingContext {...renderProps} />);
+          let html = renderToString(<RouterContext {...renderProps} />);
           res.status(200).render('main', {env: env, content: html});
         }
         else {
