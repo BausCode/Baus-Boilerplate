@@ -25,16 +25,13 @@
     "node": true,
     "browser": true
   },
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true,
-      "experimentalObjectRestSpread": true
-    }
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true,
+    "experimentalObjectRestSpread": true
   },
   "parser": "babel-eslint",
   "plugins": [
     "react"
   ],
-  "extends": ["eslint:recommended", "plugin:react/recommended"]
 }
