@@ -1,9 +1,9 @@
-React Boilerplate
+Baus Boilerplate
 ------
-Boilerplate for Universal JS applications with React, Webkit, Redux, and Express.
+Boilerplate for Universal JS applications with Webkit, React, Redux, and Express.
 
 ### Requirements
-* [Node.js v5.7.1](https://nodejs.org/en/download/)
+* [Node.js v5.9.0](https://nodejs.org/en/download/)
 
 
 ### Quick Dev Start
@@ -53,10 +53,13 @@ Set the required variables in `terraform.tfvars`. Then set the following variabl
 .
 ├── App/                              # Main Application
 |   ├── Components/                   
-|   |   ├── Component Group/          # Application Main Components ie. Homepage, Global Nav
+|   |   ├── Component Group/          # Child Components / Dumb Components
 |   |   |   ├── Index.jsx             # Componet Entry Point
 |   |   |   ├── Component.jsx         # Child Component Incorporated in Index.jsx 
 |   |   ├── Component.jsx             # Single Component
+|   |
+|   ├── Containers/                   
+|   |   ├── Container.jsx             # Main Parent / Smart Component
 |   |
 |   ├── Stylesheets/                  # Base Styles to be imported where needed
 |   |   ├── Animations/               # Animation mixins and easing functions
@@ -107,13 +110,5 @@ In order to load CSS inline and prevent any FOUC both configs set a `process.env
 ```
 
 ### TODO
-- Decouple Dev server setup for Server.js
 - TDD / BDD
 - Split code into chunks for different pages with webpack and include through [react router](https://github.com/rackt/react-router/blob/master/docs/guides/advanced/DynamicRouting.md)
-- Evaluate the CSS/SCSS setup and handling / consider [Michael Chan - Inline Styles](https://www.youtube.com/watch?v=ERB1TJBn32c) / explore [CSS-Modules](https://github.com/css-modules/css-modules) / [Radium](https://github.com/FormidableLabs/radium) / [React-Style](https://github.com/js-next/react-style)
-
-
-### Built with Inspiration from: 
-- [React Redux Universal Hot Example](https://github.com/erikras/react-redux-universal-hot-example)
-- [Isomorphic500](https://github.com/gpbl/isomorphic500)
-- [The Ultimate Webpack Setup](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup)

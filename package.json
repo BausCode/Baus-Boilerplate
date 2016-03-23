@@ -1,5 +1,5 @@
 {
-  "name": "react-boilerplate",
+  "name": "baus-boilerplate",
   "version": "1.0.1",
   "private": true,
   "main": "index.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BausCode/GitBaus-Client.git"
+    "url": "git@github.com:BausCode/Baus-Boilerplate.git"
   },
   "dependencies": {
     "autoprefixer": "^6.1.2",
