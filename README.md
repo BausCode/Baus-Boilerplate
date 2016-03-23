@@ -3,10 +3,11 @@ React Boilerplate
 Boilerplate for Universal JS applications with React, Webkit, Redux, and Express.
 
 ### Requirements
-* [Node.js v5](https://nodejs.org/en/download/)
+* [Node.js v5.7.1](https://nodejs.org/en/download/)
 
 
 ### Quick Dev Start
+* `nvm use` if using [NVM](https://github.com/creationix/nvm) to select the correct version of Node
 * `npm install -g babel babel-cli`
 * `npm install`
 * `npm run dev`
