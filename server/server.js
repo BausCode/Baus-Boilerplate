@@ -3,7 +3,7 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { match, RoutingContext } from 'react-router';
+import { match, RouterContext } from 'react-router';
 import routes from '../app/routes';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -33,28 +33,7 @@ module.exports = {
     server.set('view engine', '.hbs');
 
     if (isDev) {
-      let config = require('../webpack/dev.config');
-      let webpack = require('webpack');
-      let webpackMiddleware = require('webpack-dev-middleware');
-      let webpackHotMiddleware = require('webpack-hot-middleware');
-
-      const compiler = webpack(config);
-      const middleware = webpackMiddleware(compiler, {
-        publicPath: config.output.publicPath,
-        contentBase: `http://${host}:${port+1}`,
-        headers: { "Access-Control-Allow-Origin": "*" },
-        stats: {
-          colors: true,
-          hash: false,
-          timings: true,
-          chunks: false,
-          chunkModules: false,
-          modules: false
-        }
-      });
-
-      server.use(middleware);
-      server.use(webpackHotMiddleware(compiler));
+      require('./dev.server.js')(server);
     }
 
     server.use(express.static(publicPath));
@@ -67,12 +46,9 @@ module.exports = {
         else if (redirectLocation) {
           res.redirect(302, redirectLocation.pathname + redirectLocation.search);
         }
-        else if (renderProps && !isDev) {
-          let html = renderToString(<RoutingContext {...renderProps} />);
+        else if (renderProps) {
+          let html = renderToString(<RouterContext {...renderProps} />);
           res.status(200).render('main', {env: env, content: html});
-        }
-        else if (renderProps && isDev) {
-          res.status(200).render('main', {env: env});
         }
         else {
           res.status(404).render('404');
