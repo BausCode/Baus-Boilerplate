@@ -38,6 +38,15 @@ ex. `npm run [command]`
 * Build container and change name or version tag as needed `docker build -t react-boilerplate:1.0 .`
 * Run container and change ports as needed `docker run --rm -it -v $(pwd):/var/www/dist -p 3000:3000 react-boilerplate:1.0`
 
+### Terraform
+Set the required variables in `terraform.tfvars`. Then set the following variables in your environment:
+```
+  export TF_VAR_heroku_api_key=
+  export TF_VAR_cloudflare_api_key=
+```
+
+
+
 ### Structure
 
 ```bash
