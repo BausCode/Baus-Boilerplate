@@ -44,13 +44,13 @@ ex. `npm run [command]`
 .
 ├── App/                              # Main Application
 |   ├── Components/                   
-|   |   ├── Component Group/          # Application Components / Dumb Components
+|   |   ├── Component Group/          # Child Components / Dumb Components
 |   |   |   ├── Index.jsx             # Componet Entry Point
 |   |   |   ├── Component.jsx         # Child Component Incorporated in Index.jsx 
 |   |   ├── Component.jsx             # Single Component
 |   |
 |   ├── Containers/                   
-|   |   ├── Container.jsx             # Parent / Smart Component
+|   |   ├── Container.jsx             # Main Parent / Smart Component
 |   |
 |   ├── Stylesheets/                  # Base Styles to be imported where needed
 |   |   ├── Animations/               # Animation mixins and easing functions
