@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "autoprefixer": "^6.1.2",
-    "autoprefixer-loader": "^3.1.0",
     "babel-loader": "^6.2.0",
     "babel-plugin-react-transform": "^2.0.0",
     "babel-plugin-syntax-decorators": "^6.1.18",
@@ -38,7 +37,6 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "fs": "0.0.2",
-    "history": "^2.0.1",
     "html-webpack-plugin": "^2.9.0",
     "img-loader": "^1.2.2",
     "modernizr-webpack-plugin": "^1.0.5",
