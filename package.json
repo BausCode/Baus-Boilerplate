@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "node index",
+    "dev": "npm run clean && node index",
     "postinstall": "npm run dist",
     "dist": "npm run clean && npm run webpack-prod",
     "clean": "rm -rf public/dist && mkdir public/dist",
