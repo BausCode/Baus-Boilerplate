@@ -11,8 +11,8 @@ var path = require('path');
 var ROOT_PATH = path.resolve(__dirname);
 var BUILD_PATH = path.resolve(ROOT_PATH, '../public/dist');
 var APP_PATH = path.resolve(ROOT_PATH, '../app');
-var host = process.env.HOST || "0.0.0.0";
-var port = process.env.PORT || 3000;
+var host = process.env.HOST || '0.0.0.0';
+var port = process.env.PORT || 8080;
 
 var config = {
   context: APP_PATH,
@@ -26,7 +26,7 @@ var config = {
   },
   output: {
     path: BUILD_PATH,
-    publicPath: 'http://' + host + ':' + port + '/dist',
+    publicPath: 'http://' + host + ':' + port + '/dist/',
     filename: 'app.js'
   },
   resolve: {
