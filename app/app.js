@@ -1,8 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
+import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import configureStore from './store/configureStore';
 
@@ -14,11 +13,10 @@ if (process.env.BROWSER) {
 console.log('%c App Started', 'color:green');
 
 const store = configureStore();
-const history = createBrowserHistory();
 
 render(
   <Provider store={store}>
-    <Router history={history}>
+    <Router history={browserHistory}>
     {routes}
     </Router>
   </Provider>, 
