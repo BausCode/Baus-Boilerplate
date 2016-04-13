@@ -3,7 +3,6 @@ import Title from '../components/Home/Title.jsx';
 import Description from '../components/Home/Description.jsx';
 
 if (process.env.BROWSER) {
-  require('../stylesheets/modules/Dashboard.scss');
 }
 
 class Main extends React.Component {

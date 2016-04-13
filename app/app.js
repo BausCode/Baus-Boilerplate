@@ -6,8 +6,7 @@ import routes from './routes';
 import configureStore from './store/configureStore';
 
 if (process.env.BROWSER) {
-  require('./stylesheets/defaults/base-global.scss');
-  require('./stylesheets/defaults/typography.scss');
+  require('./stylesheets/base.scss');
 }
 
 console.log('%c App Started', 'color:green');

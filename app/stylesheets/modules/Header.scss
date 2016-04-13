@@ -2,7 +2,6 @@
 @import '../mixins/mq.scss';
 
 .header--main {
-  background: #34a3e5;
   left: 0;
   padding: $space 0;
   top: 0;
@@ -10,7 +9,6 @@
   z-index: 10;
 
   h1 {
-    color: $white;
     display: inline-block;
     font-size: $font-size-3;
     padding: 0 $space;
@@ -39,7 +37,6 @@
 .nav-item-link {
   background: transparent;
   border-radius: 5px;
-  color: $white;
   font-size: $font-size-7;
   padding: $space/4 $space/2;
   text-decoration: none;
@@ -47,6 +44,6 @@
 
   &.active,
   &:hover {
-    background: #85c7ef;
+    text-decoration: underline;
   }
 }
