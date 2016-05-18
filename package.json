@@ -57,6 +57,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
+    "nodemon": "^1.9.2",
     "eslint": "^2.9.0",
     "eslint-loader": "^1.1.1",
     "eslint-plugin-react": "^5.0.1",
