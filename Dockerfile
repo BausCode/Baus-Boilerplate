@@ -16,5 +16,5 @@ RUN curl http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar
     && npm install -g babel babel-cli node-gyp --no-optional \
     && npm install --no-optional --unsafe-perm
 
-EXPOSE 3000
-ENV PORT 3000
+EXPOSE 8080
+ENV PORT 8080

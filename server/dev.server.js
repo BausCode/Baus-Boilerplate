@@ -14,6 +14,7 @@ module.exports = function(app) {
       timings: true,
       chunks: false,
       chunkModules: false,
+      watch: true,
       modules: false
     }
   });
