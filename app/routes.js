@@ -8,7 +8,6 @@ import NoMatch from './containers/NoMatch.jsx';
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
-    <Route path="/index.html" component={Home} />
     <Route path="/counter" component={Counter} />
     <Route path="/*" component={NoMatch} />
   </Route>

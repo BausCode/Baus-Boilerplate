@@ -14,8 +14,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": "=5.9.0",
-    "npm": "=3.7.3"
+    "node": "=6.2.2",
+    "npm": "=3.9.5"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,7 @@
     "express": "^4.13.3",
     "express-handlebars": "^3.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.8.5",
+    "file-loader": "^0.9.0",
     "fs": "0.0.2",
     "html-webpack-plugin": "^2.9.0",
     "img-loader": "^1.2.2",
