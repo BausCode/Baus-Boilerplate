@@ -28,7 +28,7 @@ Vagrant.configure(2) do |config|
 
       cd /home/vagrant/Baus-Boilerplate
 
-      nvm install 5.9.0
+      nvm install 6.2.2
 
       npm install -g babel babel-cli
 
