@@ -18,3 +18,4 @@ Counter.propTypes = {
   state: PropTypes.object.isRequired
 };
 
+export default Counter;
