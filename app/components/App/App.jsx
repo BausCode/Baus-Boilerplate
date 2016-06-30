@@ -8,7 +8,6 @@ if (process.env.BROWSER) {
 }
 
 function App (props) {
-  console.log(props);
   return (
     <main>
       <Header />
