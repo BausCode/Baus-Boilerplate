@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActions } from '../../actions';
 import Header from '../Header';
 
 if (process.env.BROWSER) {
@@ -6,6 +8,7 @@ if (process.env.BROWSER) {
 }
 
 function App (props) {
+  console.log(props);
   return (
     <main>
       <Header />
@@ -17,7 +20,12 @@ function App (props) {
 }
 
 App.propTypes = {
-  children: PropTypes.element.isRequired
+  actions: PropTypes.object.isRequired,
+  children: PropTypes.element.isRequired,
+  state: PropTypes.object.isRequired
 };
 
-export default App;
+export default connect(
+  function mapStateToProps(state) { return { state }; },
+  function mapDispatchToProps(dispatch) { return { actions: bindActions(dispatch) }; }
+)(App);
