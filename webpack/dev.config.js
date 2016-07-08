@@ -26,7 +26,7 @@ var config = {
   },
   output: {
     path: BUILD_PATH,
-    publicPath: 'http://' + host + ':' + port + '/dist/',
+    publicPath: '/dist/',
     filename: 'app.js'
   },
   resolve: {
@@ -37,7 +37,7 @@ var config = {
     loaders: [
       {
         test: /\.js?$|\.jsx?$/,
-        loaders: ['babel?' + JSON.stringify(hmrConfig), 'eslint'],
+        loaders: ['react-hot', 'babel?' + JSON.stringify(hmrConfig), 'eslint'],
         exclude: /node_modules/
       },
       {

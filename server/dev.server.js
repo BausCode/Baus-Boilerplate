@@ -8,6 +8,7 @@ module.exports = function(app) {
   const middleware = webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,
     contentBase: 'src',
+    headers: { 'Access-Control-Allow-Origin': '*' },
     stats: {
       colors: true,
       hash: false,
@@ -16,6 +17,9 @@ module.exports = function(app) {
       chunkModules: false,
       watch: true,
       modules: false
+    },
+    watchOptions: {
+      poll: true
     }
   });
 
