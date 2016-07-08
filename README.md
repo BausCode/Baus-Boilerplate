@@ -10,7 +10,7 @@ Boilerplate for Universal JS applications with Webkit, React, Redux, and Express
 * `nvm use` if using [NVM](https://github.com/creationix/nvm) to select the correct version of Node
 * `npm install -g babel babel-cli`
 * `npm install`
-* `npm run dev`
+* `npm start`
 
 
 ### Production Start

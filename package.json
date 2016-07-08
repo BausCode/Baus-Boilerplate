@@ -4,12 +4,12 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "npm run clean && node index",
+    "dev": "npm run clean && nodemon index --watch server",
     "postinstall": "npm run dist",
     "dist": "npm run clean && npm run webpack-prod",
     "clean": "rm -rf public/dist && mkdir public/dist",
     "webpack-prod": "webpack --config ./webpack/production.config.js --progress --profile --colors",
-    "start": "node index",
+    "start": "npm run dev",
     "prod": "NODE_ENV=production node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -60,6 +60,7 @@
     "eslint": "^2.9.0",
     "eslint-loader": "^1.1.1",
     "eslint-plugin-react": "^5.0.1",
+    "nodemon": "^1.9.2",
     "react-hot-loader": "^1.3.0",
     "react-transform-catch-errors": "^1.0.1",
     "react-transform-hmr": "^1.0.1",
