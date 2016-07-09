@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 function Counter (props) {
-  const { increment, decrement } = props.actions;
+  const { increment, decrement } = props.actions.counter;
   const counter = props.state.counter;
 
   return (
