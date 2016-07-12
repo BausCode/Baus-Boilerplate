@@ -7,12 +7,18 @@ if (process.env.BROWSER) {
   require('../../stylesheets/defaults/content.scss');
 }
 
+function renderChildren (props) {
+  return React.Children.map(props.children, child => {
+    return React.cloneElement(child, {...props});
+  });
+}
+
 function App (props) {
   return (
     <main>
       <Header />
       <div className='content'>
-        { props.children }
+        { renderChildren(props) }
       </div>
     </main>
   );

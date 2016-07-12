@@ -15,6 +15,9 @@
   </head>
   <body>
     {{{body}}}
+    {{#if data}}
+    <script>window.__initial_state__ = {{{json data}}};</script>
+    {{/if}}
     <script src="/dist/app.js"></script>
   </body>
 </html>
