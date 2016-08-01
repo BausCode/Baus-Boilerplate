@@ -14,8 +14,8 @@ function Counter (props) {
 }
 
 Counter.propTypes = {
-  actions: PropTypes.object.isRequired,
-  state: PropTypes.object.isRequired
+  actions: PropTypes.object,
+  state: PropTypes.object
 };
 
 export default Counter;
