@@ -35,6 +35,14 @@ var configs = {
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+      },
+      { 
+        test: /\.(jpg|jpeg|png|gif|svg)$/, 
+        loaders: ['url?limit=25000', 'img']
+      },
+      {
+        test: /\.(eot|woff|woff2|ttf|svg)$/, 
+        loader: 'url?limit=20000'
       }
     ]
   },

@@ -11,7 +11,7 @@ if (process.env.BROWSER) {
 
 console.log('%c App Started', 'color:green');
 
-const store = configureStore();
+const store = configureStore( window.__initial_state__ );
 
 render(
   <Provider store={store}>

@@ -1,14 +1,13 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import App from './containers/App.jsx';
-import Home from './containers/Home.jsx';
-import Counter from './containers/Counter.jsx';
-import NoMatch from './containers/NoMatch.jsx';
+import App from './components/App';
+import Main from './components/Main';
+import Counter from './components/Counter';
+import NoMatch from './components/NoMatch';
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={Home} />
-    <Route path="/index.html" component={Home} />
+    <IndexRoute component={Main} />
     <Route path="/counter" component={Counter} />
     <Route path="/*" component={NoMatch} />
   </Route>

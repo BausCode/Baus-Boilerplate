@@ -5,6 +5,8 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import routes from '../app/routes';
+import render from './render';
+import configureStore from '../app/store/configureStore';
 
 const isDev = process.env.NODE_ENV !== 'production';
 const env  = isDev ? 'development' : process.env.NODE_ENV;
@@ -47,8 +49,11 @@ module.exports = {
           res.redirect(302, redirectLocation.pathname + redirectLocation.search);
         }
         else if (renderProps) {
-          let html = renderToString(<RouterContext {...renderProps} />);
-          res.status(200).render('main', {env: env, content: html});
+          const store = configureStore();
+          const initialState = store.getState();
+          const html = render(React)(store, renderProps);
+
+          res.status(200).render('main', {env: env, content: html, data: initialState});
         }
         else {
           res.status(404).render('404');
@@ -61,14 +66,15 @@ module.exports = {
         console.log(err);
       }
       else {
-         console.log('  /$$$$$$$    /$$$$$$   /$$   /$$   /$$$$$$ ');
-         console.log(' | $$__  $$  /$$__  $$ | $$  | $$  /$$__  $$');
-         console.log(' | $$  \\ $$ | $$  \\ $$ | $$  | $$ | $$  \\__/');
-         console.log(' | $$$$$$$  | $$$$$$$$ | $$  | $$ |  $$$$$$ ');
-         console.log(' | $$__  $$ | $$__  $$ | $$  | $$  \\____  $$');
-         console.log(' | $$  \\ $$ | $$  | $$ | $$  | $$  /$$  \\ $$');
-         console.log(' | $$$$$$$/ | $$  | $$ |  $$$$$$/|   $$$$$$/');
-         console.log(' |_______/  |__/  |__/  \\______/   \\______/ ');
+        console.log('');
+        console.log('  /$$$$$$$    /$$$$$$   /$$   /$$   /$$$$$$ ');
+        console.log(' | $$__  $$  /$$__  $$ | $$  | $$  /$$__  $$');
+        console.log(' | $$  \\ $$ | $$  \\ $$ | $$  | $$ | $$  \\__/');
+        console.log(' | $$$$$$$  | $$$$$$$$ | $$  | $$ |  $$$$$$ ');
+        console.log(' | $$__  $$ | $$__  $$ | $$  | $$  \\____  $$');
+        console.log(' | $$  \\ $$ | $$  | $$ | $$  | $$  /$$  \\ $$');
+        console.log(' | $$$$$$$/ | $$  | $$ |  $$$$$$/|   $$$$$$/');
+        console.log(' |_______/  |__/  |__/  \\______/   \\______/ ');
       }
       console.info('\n=> Baus Server is running %s on %s:%s\n', env, host, port);
     });
