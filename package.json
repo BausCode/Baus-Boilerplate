@@ -39,6 +39,7 @@
     "fs": "0.0.2",
     "html-webpack-plugin": "^2.9.0",
     "img-loader": "^1.2.2",
+    "immutable": "^3.8.1",
     "modernizr-webpack-plugin": "^1.0.5",
     "node-sass": "^3.4.2",
     "path": "^0.12.7",
@@ -53,7 +54,8 @@
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.9",
+    "webpack-strip-logs": "^0.1.2"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
@@ -67,6 +69,7 @@
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.1",
+    "redux-logger": "^2.6.1",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-error-notification": "^0.1.5",
     "webpack-hot-middleware": "^2.9.0"
