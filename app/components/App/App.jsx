@@ -8,8 +8,11 @@ if (process.env.BROWSER) {
 }
 
 function renderChildren (props) {
-  return React.Children.map(props.children, child => {
-    return React.cloneElement(child, {...props});
+  return React.Children.map(props.children, function(child) {
+    return React.cloneElement(child, {
+      actions: props.actions,
+      state: props.state
+    } );
   });
 }
 
@@ -31,6 +34,6 @@ App.propTypes = {
 };
 
 export default connect(
-  function mapStateToProps(state) { return { state }; },
+  function mapStateToProps(state) { return { state: state }; },
   function mapDispatchToProps(dispatch) { return { actions: bindActions(dispatch) }; }
 )(App);
