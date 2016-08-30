@@ -29,7 +29,7 @@ var configs = {
     loaders: [
       {
         test: /\.js(x)?$/,
-        loaders: ['babel', 'webpack-strip-logs'],
+        loaders: ['babel', 'eslint', 'webpack-strip-logs'],
         exclude: /node_modules/ 
       },
       {
