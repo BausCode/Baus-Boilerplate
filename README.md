@@ -3,7 +3,7 @@ Baus Boilerplate
 Boilerplate for Universal JS applications with Webkit, React, Redux, and Express.
 
 ### Requirements
-* [Node.js v5.9.0](https://nodejs.org/en/download/)
+* [Node.js v6.3.0](https://nodejs.org/en/download/)
 
 
 ### Quick Dev Start
@@ -61,7 +61,7 @@ Set the required variables in `terraform.tfvars`. Then set the following variabl
 |   ├── Components/                   
 |   |   ├── Component Group/          # Child Components / Dumb Components
 |   |   |   ├── Index.jsx             # Componet Entry Point
-|   |   |   ├── Component.jsx         # Child Component Incorporated in Index.jsx 
+|   |   |   ├── Component.jsx         # Child Component Incorporated in Index.jsx
 |   |   ├── Component.jsx             # Single Component
 |   |
 |   ├── Containers/                   
@@ -72,8 +72,8 @@ Set the required variables in `terraform.tfvars`. Then set the following variabl
 |   |   ├── Defaults/                 # Default Global styles
 |   |   ├── Fonts/                    # Font Families
 |   |   ├── Mixins/                   # Mixin functions
-|   |   ├── Modules/                  # Module Styles for Different Components 
-|   |   |   ├── Component.scss        # Specific styles imported for a component 
+|   |   ├── Modules/                  # Module Styles for Different Components
+|   |   |   ├── Component.scss        # Specific styles imported for a component
 |   |   ├── Utilities/                # Utility sytles - ie. clearfix
 |   |   ├── Variables.scss            # Global variables
 |   |
