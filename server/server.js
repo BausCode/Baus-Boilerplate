@@ -7,6 +7,7 @@ import { match, RouterContext } from 'react-router';
 import routes from '../app/routes';
 import render from './render';
 import configureStore from '../app/store/configureStore';
+import { initialState as initialAppState } from '../app/reducers';
 
 const isDev = process.env.NODE_ENV !== 'production';
 const env  = isDev ? 'development' : process.env.NODE_ENV;
@@ -49,7 +50,7 @@ module.exports = {
           res.redirect(302, redirectLocation.pathname + redirectLocation.search);
         }
         else if (renderProps) {
-          const store = configureStore();
+          const store = configureStore( initialAppState );
           const initialState = store.getState();
           const html = render(React)(store, renderProps);
 
