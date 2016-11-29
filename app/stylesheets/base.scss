@@ -1,8 +1,16 @@
 // base.scss
 // 
 
+/** Defaults ********************************************************/
 @import 'defaults/base-global.scss';
+@import 'defaults/grid.scss';
 @import 'defaults/typography.scss';
 
-/********************************************************** Viewport */
+/** Utilities ********************************************************/
 
+@import 'utilities/visibility.scss';
+@import 'utilities/performance.scss';
+@import 'utilities/clearfix.scss';
+
+/** Animations ********************************************************/
+@import 'animations/easing.scss';

@@ -1,21 +1,27 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 
 function Counter (props) {
   const { increment, decrement } = props.actions.counter;
-  const counter = props.state.counter;
 
   return (
     <div className="counter">
-      <h1>{counter}</h1>
-      <button onClick={increment}>Increase</button>
-      <button onClick={decrement}>Decrease</button>
+      <p className="heading-1">{ props.counter }</p>
+      <button onClick={ increment }>Increase</button>
+      <button onClick={ decrement }>Decrease</button>
     </div>
   );
 }
 
 Counter.propTypes = {
-  actions: PropTypes.object,
-  state: PropTypes.object
+  actions: PropTypes.object.isRequired,
+  counter: PropTypes.number.isRequired
 };
 
-export default Counter;
+export default connect(
+  function mapStateToProps(state) {
+    return {
+      counter: state.counter,
+    };
+  }
+)(Counter);

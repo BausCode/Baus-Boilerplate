@@ -1,14 +1,7 @@
-/**********************************************************
-  Visibility
-  css/app/utilities/_visibility
-*/
-
-@import 'compass';
-
 /********************************************************** Transparent + Hidden + Invisibility */
 
 .transparent {
-  @include opacity(0);
+  opacity: 0;
 }
 
 .hidden {
