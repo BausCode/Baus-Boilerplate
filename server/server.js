@@ -7,7 +7,6 @@ import { match, RouterContext } from 'react-router';
 import routes from '../app/routes';
 import render from './render';
 import configureStore from '../app/store/configureStore';
-import { fromJS } from 'immutable';
 import { initialState as initialAppState } from '../app/reducers';
 
 const isDev = process.env.NODE_ENV !== 'production';
