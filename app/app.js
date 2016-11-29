@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
+import { Map } from 'immutable';
 import configureStore from './store/configureStore';
 
 if (process.env.BROWSER) {
@@ -12,7 +13,10 @@ if (process.env.BROWSER) {
 
 console.log('%c App Started', 'color:green');
 
-const store = configureStore( window.__initial_state__ );
+const initialState = window.__initial_state__;
+const store = configureStore({
+  counter: Map( initialState.counter )
+});
 
 render(
   <Provider store={store}>

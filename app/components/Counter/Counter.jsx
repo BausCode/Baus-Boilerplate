@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 function Counter (props) {
   const { increment, decrement } = props.actions.counter;
 
   return (
     <div className="counter">
-      <p className="heading-1">{ props.counter }</p>
+      <p className="heading-1">{ props.counter.get('value', 0) }</p>
       <button onClick={ increment }>Increase</button>
       <button onClick={ decrement }>Decrease</button>
     </div>
@@ -15,7 +16,7 @@ function Counter (props) {
 
 Counter.propTypes = {
   actions: PropTypes.object.isRequired,
-  counter: PropTypes.number.isRequired
+  counter: ImmutablePropTypes.map.isRequired
 };
 
 export default connect(
