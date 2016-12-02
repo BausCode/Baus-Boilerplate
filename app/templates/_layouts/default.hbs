@@ -7,17 +7,18 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="description" content="">
     <title>Boilerplate</title>
-    <link rel="shortcut icon" href="/images/touch/touch-icon-57x57.png">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="shortcut icon" href="/images/favicon-57x57.png">
     {{#isProd env}}
     <link rel="stylesheet" type="text/css" href="/dist/app.css" />
     {{/isProd}}
-    <script src="/dist/modernizr-custom.js"></script>
   </head>
   <body>
     {{{body}}}
     {{#if data}}
     <script>window.__initial_state__ = {{{json data}}};</script>
     {{/if}}
+    <script src="/dist/modernizr-custom.js"></script>
     <script src="/dist/app.js"></script>
   </body>
 </html>

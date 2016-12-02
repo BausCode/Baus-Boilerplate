@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Nav from '../Nav';
 
 if (process.env.BROWSER) {
-  require('../../stylesheets/modules/Header.scss');
+  require('./style.scss');
 }
 
 function Header () {
   return (
     <header className='header--main'>
-      <h1>BausCode</h1>
+      <h1><Link to='/'>BausCode</Link></h1>
       <Nav />
     </header>
   );

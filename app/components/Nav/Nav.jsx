@@ -4,6 +4,7 @@ import { IndexLink, Link } from 'react-router';
 function Nav () {
   return (
     <nav className='header--main-nav'>
+      <h1 className='visuallyhidden'>Navigation</h1>
       <ul className='nav-list'>
         <li className='nav-list-item'>
           <IndexLink to={'/'} className='nav-item-link' activeClassName='active'>Home</IndexLink>
