@@ -17,7 +17,10 @@ var sassLoaders = [
 ];
 
 var configs = {
-  entry: APP_PATH + '/app.js',
+  entry: [
+    'babel-polyfill',
+    APP_PATH + '/app.js'
+  ],
   output: {
     path: BUILD_PATH,
     filename: "app.js"
