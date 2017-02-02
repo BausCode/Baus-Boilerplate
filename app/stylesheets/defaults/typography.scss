@@ -9,8 +9,8 @@ body {
   color: $black;
   font-family: Helvetica, Arial, sans-serif;
   font-size: $font-size-base; // 16px
-  -moz-osx-font-smoothing: subpixel-antialiased;
-  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
   // Optionally control font size based on breakpoints                  
   //@include mq($M) { font-size: get-multiplier(17, $font-size-base) + em; } // 17px = 1.0625em
   //@include mq($L) { font-size: get-multiplier(18, $font-size-base) + em; } // 18px = 1.125em
