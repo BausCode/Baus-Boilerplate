@@ -19,7 +19,7 @@ var config = {
   devtool: 'eval-source-map',
   entry: {
     app: [
-      'babel-polyfill', // from YOU IE crashing fix
+      'babel-polyfill', 
       'eventsource-polyfill', // necessary for hot reloading with IE
       'webpack-hot-middleware/client',
       APP_PATH + '/app.js'
