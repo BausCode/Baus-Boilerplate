@@ -19,6 +19,7 @@ var config = {
   devtool: 'eval-source-map',
   entry: {
     app: [
+      'babel-polyfill', 
       'eventsource-polyfill', // necessary for hot reloading with IE
       'webpack-hot-middleware/client',
       APP_PATH + '/app.js'
@@ -69,7 +70,7 @@ var config = {
   ],
   postcss: [
     autoprefixer({
-      browsers: ['last 2 versions']
+      browsers: ['last 2 versions', 'iOS < 9']
     })
   ]
 };
