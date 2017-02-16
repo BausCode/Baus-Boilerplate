@@ -58,7 +58,7 @@ var configs = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new ExtractTextPlugin('app.css'),
+    new ExtractTextPlugin('styles.css'),
     new ModernizrWebpackPlugin(modernizrConfig),
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     new webpack.optimize.CommonsChunkPlugin({

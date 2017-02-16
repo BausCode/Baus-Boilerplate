@@ -36,7 +36,6 @@
     "css-loader": "^0.26.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.1",
-    "express-handlebars": "^3.0.0",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.10.0",
     "fs": "0.0.2",
