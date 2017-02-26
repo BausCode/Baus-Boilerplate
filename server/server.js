@@ -1,5 +1,7 @@
 import path from 'path';
 import express from 'express';
+import compression from 'compression';
+import helmet from 'helmet';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
@@ -17,12 +19,16 @@ module.exports = {
   start: function() {
     let server = express();
 
-    server.set("env", env);
-    server.set("host", host); 
-    server.set("port", port);
+    server.set('env', env);
+    server.set('host', host); 
+    server.set('port', port);
 
     if (isDev) {
       require('./dev.server.js')(server);
+    }
+    else {
+      server.use(compression());
+      server.use(helmet());
     }
 
     server.use(express.static(publicPath));
