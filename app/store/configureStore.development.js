@@ -15,7 +15,7 @@ export default function configureStore(initialState) {
 
   if (module.hot) {
     module.hot.accept('../reducers/index', () =>
-      store.replaceReducer(require('../reducers/index'))
+      store.replaceReducer(require('reducers/index'))
     );
   }
 

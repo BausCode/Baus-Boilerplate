@@ -7,7 +7,7 @@ import { Map } from 'immutable';
 import configureStore from './store/configureStore';
 
 if (process.env.BROWSER) {
-  require('./stylesheets/base.scss');
+  require('styles/base.scss');
 }
 
 console.log('%c App Started', 'color:green');

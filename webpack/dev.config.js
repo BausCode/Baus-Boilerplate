@@ -9,8 +9,8 @@ var modernizrConfig = require('./modernizr.config');
 var path = require('path');
 
 var ROOT_PATH = path.resolve(__dirname);
-var BUILD_PATH = path.resolve(ROOT_PATH, '../public/dist');
-var APP_PATH = path.resolve(ROOT_PATH, '../app');
+var BUILD_PATH = path.resolve(__dirname, '../public/dist');
+var APP_PATH = path.resolve(__dirname, '../app');
 var host = process.env.HOST || '0.0.0.0';
 var port = process.env.PORT || 8080;
 
@@ -22,7 +22,7 @@ var config = {
       'babel-polyfill', 
       'eventsource-polyfill', // necessary for hot reloading with IE
       'webpack-hot-middleware/client',
-      APP_PATH + '/app.js'
+      APP_PATH + '/index.js'
     ],
     vendor: ['react', 'react-dom', 'redux', 'react-redux', 'redux-thunk', 'react-router', 'immutable' ]
   },
@@ -32,6 +32,7 @@ var config = {
     filename: '[name].js'
   },
   resolve: {
+    modules: [APP_PATH, 'node_modules'],
     extensions: ['.js', '.jsx', '.scss']
   },
   module: {

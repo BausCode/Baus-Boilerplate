@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import App from './components/App';
-import Main from './components/Main';
-import Counter from './components/Counter';
-import NoMatch from './components/NoMatch';
+import App from './pages/App';
+import Main from './pages/Main';
+import Counter from './pages/Counter';
+import NoMatch from './pages/NoMatch';
 
 export default (
   <Route path="/" component={App}>

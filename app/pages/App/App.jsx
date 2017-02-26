@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActions } from '../../actions';
-import MainWrapper from '../MainWrapper';
+import MainWrapper from '../../components/MainWrapper';
 
 function App (props) {
   return (

@@ -1,5 +1,11 @@
-// 00.global.scss
-@import '../variables.scss';
+/*
+ * Defaults Styles
+ **
+ * HTML Reset
+ * Base styles
+ */
+
+@import 'variables.scss';
 
 /********************************************************** Viewport */
 
@@ -20,6 +26,7 @@
 
 html {
   box-sizing: 'border-box';
+  font-size: 62.5%;
 }
 
 *,
@@ -54,4 +61,58 @@ a {
   &:active {
     outline: 0;
   }
+}
+
+/********************************************************** Typography */
+
+body {
+  color: $black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $font-size-base; // 16px
+  -moz-osx-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  line-height: 1.5;
+  margin: 0;
+  padding: 0 0 $space;
+}
+
+ul,
+ol,
+dl {
+  line-height: 1.5;
+  list-style: none;
+  margin: 0 0 0 $space;
+  padding: 0 0 ($space/2);
+}
+
+p  ul,
+ul ul,
+ol ul,
+p  ol,
+ul ol,
+ol ol {
+  padding-bottom: 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+code {
+  font-size: $font-size-16;
+  line-height: 1.5;
 }

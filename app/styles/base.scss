@@ -1,16 +1,19 @@
-// base.scss
-// 
+/*
+ * Base Application Styles
+ **
+ * Defaults
+ * Typography
+ * Utilities
+ */
 
 /** Defaults ********************************************************/
-@import 'defaults/base-global.scss';
-@import 'defaults/grid.scss';
-@import 'defaults/typography.scss';
+@import 'variables.scss';
+@import 'defaults.scss';
+@import 'fonts.scss';
+@import 'typography.scss';
 
 /** Utilities ********************************************************/
 
 @import 'utilities/visibility.scss';
 @import 'utilities/performance.scss';
 @import 'utilities/clearfix.scss';
-
-/** Animations ********************************************************/
-@import 'animations/easing.scss';

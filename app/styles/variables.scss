@@ -1,0 +1,53 @@
+/*
+ * Global Variables
+ **
+ * NOTE: Variables should be named general to specific
+ */
+
+// Breakpoints
+$breakpoint-s: 608px;
+$breakpoint-m: 912px;
+$breakpoint-l: 1312px;
+
+// Media Queries
+$S: 'min-width:'+ $breakpoint-s;
+$M: 'min-width:'+ $breakpoint-m;
+$L: 'min-width:'+ $breakpoint-l;
+
+
+// Color Pallete
+$white: #fff;
+$black: #000;
+$grey: #666;
+$grey-light: #ECEFF1;
+$grey-light-2: #CFD8DC;
+
+// Typography
+$vertical-rhythm-base: 16; // 16px default browser font size
+$vertical-rhythm: 24;      // 24px vertical rhythm
+
+$font-size-base: 1.6rem; // Use browser default font-size, usually 16px
+
+// Font Size Variables:
+//  6.4rem = 64px,
+//  5.0rem = 50px, etc.
+ $font-size-64: 6.4rem;
+ $font-size-48: 4.8rem;
+ $font-size-40: 4rem;
+ $font-size-36: 3.6rem;
+ $font-size-32: 3.2rem;
+ $font-size-28: 2.8rem;
+ $font-size-24: 2.4rem;
+ $font-size-20: 2.0rem;
+ $font-size-18: 1.8rem;
+ $font-size-16: $font-size-base;
+ $font-size-14: 1.4rem;
+ $font-size-12: 1.2rem;
+ $font-size-9: 0.9rem;
+ $font-size-8: 0.8rem;
+
+// Spacing
+$space: ($vertical-rhythm / $vertical-rhythm-base) + 0rem; // 24px to follow vertical rhythm
+
+// Extra
+$radius: $space /2;

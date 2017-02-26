@@ -1,6 +1,5 @@
 import path from 'path';
 import express from 'express';
-import handlebars from 'express-handlebars';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';

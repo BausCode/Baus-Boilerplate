@@ -19,7 +19,7 @@ var configs = {
   entry: {
     app: [
       'babel-polyfill',
-      APP_PATH + '/app.js'
+      APP_PATH + '/index.js'
     ],
     vendor: ['react', 'react-dom', 'redux', 'react-redux', 'redux-thunk', 'react-router', 'immutable' ]
   },
@@ -28,6 +28,7 @@ var configs = {
     filename: '[name].js'
   },
   resolve: {
+    modules: [APP_PATH, 'node_modules'],
     extensions: ['.js', '.jsx', '.scss']
   },
   module: {
