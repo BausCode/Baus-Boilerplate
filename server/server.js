@@ -1,13 +1,12 @@
 import path from 'path';
 import express from 'express';
-import handlebars from 'express-handlebars';
+import compression from 'compression';
+import helmet from 'helmet';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import routes from '../app/routes';
 import render from './render';
-import configureStore from '../app/store/configureStore';
-import { initialState as initialAppState } from '../app/reducers';
 
 const isDev = process.env.NODE_ENV !== 'production';
 const env  = isDev ? 'development' : process.env.NODE_ENV;
@@ -15,28 +14,21 @@ const port = process.env.PORT || 8080;
 const host = process.env.HOST || '0.0.0.0';
 
 const publicPath = path.resolve(__dirname, '../public');
-const templatePath = path.resolve(__dirname, '../app/templates');
-const hbs = handlebars.create({
-  layoutsDir: templatePath + '/_layouts',
-  defaultLayout: 'default',
-  helpers: new require( templatePath + '/_helpers')(),
-  extname: '.hbs'
-});
 
 module.exports = {
   start: function() {
     let server = express();
 
-    server.set("env", env);
-    server.set("host", host); 
-    server.set("port", port);
-
-    server.engine('.hbs', hbs.engine); 
-    server.set('views', templatePath + '/_pages');
-    server.set('view engine', '.hbs');
+    server.set('env', env);
+    server.set('host', host); 
+    server.set('port', port);
 
     if (isDev) {
       require('./dev.server.js')(server);
+    }
+    else {
+      server.use(compression());
+      server.use(helmet());
     }
 
     server.use(express.static(publicPath));
@@ -50,14 +42,12 @@ module.exports = {
           res.redirect(302, redirectLocation.pathname + redirectLocation.search);
         }
         else if (renderProps) {
-          const store = configureStore( initialAppState );
-          const initialState = store.getState();
-          const html = render(React)(store, renderProps);
-
-          res.status(200).render('main', {env: env, content: html, data: initialState});
+          const html = render(React)(renderProps);
+          res.status(200).send(html);
         }
         else {
-          res.status(404).render('404');
+          const html = render(React)(renderProps);
+          res.status(404).send(html);
         }
       });
     });

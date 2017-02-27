@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 function Counter (props) {
   const { increment, decrement } = props.actions.counter;
@@ -16,7 +15,7 @@ function Counter (props) {
 
 Counter.propTypes = {
   actions: PropTypes.object.isRequired,
-  counter: ImmutablePropTypes.map.isRequired
+  counter: PropTypes.object.isRequired
 };
 
 export default connect(

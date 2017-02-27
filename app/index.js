@@ -4,13 +4,17 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import { Map } from 'immutable';
-import configureStore from './store/configureStore';
+import configureStore from 'store/configureStore';
 
 if (process.env.BROWSER) {
-  require('./stylesheets/base.scss');
+  require('styles/base.scss');
 }
 
 console.log('%c App Started', 'color:green');
+
+if (process.env.NODE_ENV === 'development') {
+  console.log('%c Redux Dev Tools:\n Toggle View "ctrl+h"\n Toggle Position "ctrl+m"', 'color:blue');
+}
 
 const initialState = window.__initial_state__;
 const store = configureStore({

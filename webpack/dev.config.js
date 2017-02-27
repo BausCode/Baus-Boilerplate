@@ -9,8 +9,8 @@ var modernizrConfig = require('./modernizr.config');
 var path = require('path');
 
 var ROOT_PATH = path.resolve(__dirname);
-var BUILD_PATH = path.resolve(ROOT_PATH, '../public/dist');
-var APP_PATH = path.resolve(ROOT_PATH, '../app');
+var BUILD_PATH = path.resolve(__dirname, '../public/dist');
+var APP_PATH = path.resolve(__dirname, '../app');
 var host = process.env.HOST || '0.0.0.0';
 var port = process.env.PORT || 8080;
 
@@ -22,36 +22,50 @@ var config = {
       'babel-polyfill', 
       'eventsource-polyfill', // necessary for hot reloading with IE
       'webpack-hot-middleware/client',
-      APP_PATH + '/app.js'
-    ]
+      APP_PATH + '/index.js'
+    ],
+    vendor: ['react', 'react-dom', 'redux', 'react-redux', 'redux-thunk', 'react-router', 'immutable' ]
   },
   output: {
     path: BUILD_PATH,
     publicPath: '/dist/',
-    filename: 'app.js'
+    filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss'],
-    root: APP_PATH
+    modules: [APP_PATH, 'node_modules'],
+    extensions: ['.js', '.jsx', '.scss']
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js?$|\.jsx?$/,
-        loaders: ['react-hot', 'babel?' + JSON.stringify(hmrConfig), 'eslint'],
+        use: ['react-hot-loader', 'babel-loader?' + JSON.stringify(hmrConfig), 'eslint-loader'],
         exclude: /node_modules/
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'postcss', 'sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true']
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [ APP_PATH ],
+              outputStyle: 'expanded',
+              sourceMap: true,
+              sourceMapContents: true
+            }
+          }
+        ]
       },
       { 
         test: /\.(jpg|jpeg|png|gif|svg)$/, 
-        loaders: ['url?limit=25000', 'img']
+        use: ['url-loader?limit=25000', 'img-loader']
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg)$/, 
-        loader: 'url?limit=20000'
+        use: 'url-loader?limit=20000'
       }
     ]
   },
@@ -63,14 +77,12 @@ var config = {
       }
     }),
     new ModernizrWebpackPlugin(modernizrConfig),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new WebpackErrorNotificationPlugin()
-  ],
-  postcss: [
-    autoprefixer({
-      browsers: ['last 2 versions', 'iOS < 9']
+    new webpack.NoEmitOnErrorsPlugin(),
+    new WebpackErrorNotificationPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor']
     })
   ]
 };

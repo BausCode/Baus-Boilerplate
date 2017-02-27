@@ -1,5 +1,5 @@
-@import '../../stylesheets/variables.scss';
-@import '../../stylesheets/mixins/mq.scss';
+@import 'styles/variables.scss';
+@import 'styles/mixins/mq.scss';
 
 .header--main {
   left: 0;
@@ -10,7 +10,7 @@
 
   h1 {
     display: inline-block;
-    font-size: $font-size-3;
+    font-size: $font-size-36;
     padding: 0 $space;
   }
 }
@@ -37,7 +37,7 @@
 .nav-item-link {
   background: transparent;
   border-radius: 5px;
-  font-size: $font-size-7;
+  font-size: $font-size-14;
   padding: $space/4 $space/2;
   text-decoration: none;
   text-transform: uppercase;
