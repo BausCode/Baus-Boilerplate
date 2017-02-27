@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Nav from '../Nav';
+import Nav from 'components/Nav';
 
 if (process.env.BROWSER) {
   require('./style.scss');

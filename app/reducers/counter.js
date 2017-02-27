@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/counter';
+import { INCREMENT_COUNTER, DECREMENT_COUNTER } from 'actions/counter';
 
 export const initialState = Map({
   value: 0

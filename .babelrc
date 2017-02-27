@@ -2,11 +2,13 @@
   "presets": [
     "react",
     "es2015", 
-    "stage-0"
+    "stage-0",
+    "react-optimize"
   ],
 
   "plugins": [
-    "syntax-decorators"
+    "syntax-decorators",
+    ["resolver", {"resolveDirs": ["app", "server", "webpack"] } ]
   ],
 
   "env": {

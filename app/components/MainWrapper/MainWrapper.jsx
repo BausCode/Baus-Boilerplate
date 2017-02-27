@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { withRouter } from 'react-router';
-import Header from '../Header';
-import Footer from '../Footer';
-//import GA from '../../services/gaService';
+import DevTools from 'components/DevTools';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+//import GA from 'services/gaService';
 
 if (process.env.BROWSER) {
   require('./style.scss');
@@ -18,6 +19,14 @@ function renderChildren(props) {
     });
   });
 }
+
+function renderDevTools () {
+  if (process.env.NODE_ENV !== 'production') {
+    return <DevTools />;
+  }
+  return null;
+}
+
 
 class MainWrapper extends Component {
   componentDidMount() {
@@ -41,6 +50,7 @@ class MainWrapper extends Component {
           { renderChildren(this.props) }
         </main>
         <Footer role="contentinfo" />
+        { renderDevTools() }
       </div>
     );
   }

@@ -16,6 +16,7 @@ var sassLoaders = [
 ];
 
 var configs = {
+  context: APP_PATH,
   entry: {
     app: [
       'babel-polyfill',
