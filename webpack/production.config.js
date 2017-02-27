@@ -12,7 +12,7 @@ var APP_PATH = path.resolve(__dirname, '../app');
 var sassLoaders = [
   'css-loader',
   'postcss-loader',
-  'sass-loader?outputStyle=compressed&includePaths[]=' + path.resolve(__dirname, '../app')
+  'sass-loader?outputStyle=compressed&includePaths[]=' + APP_PATH
 ];
 
 var configs = {

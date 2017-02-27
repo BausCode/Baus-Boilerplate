@@ -36,23 +36,36 @@ var config = {
     extensions: ['.js', '.jsx', '.scss']
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js?$|\.jsx?$/,
-        loaders: ['react-hot-loader', 'babel-loader?' + JSON.stringify(hmrConfig), 'eslint-loader'],
+        use: ['react-hot-loader', 'babel-loader?' + JSON.stringify(hmrConfig), 'eslint-loader'],
         exclude: /node_modules/
       },
       {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true']
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [ APP_PATH ],
+              outputStyle: 'expanded',
+              sourceMap: true,
+              sourceMapContents: true
+            }
+          }
+        ]
       },
       { 
         test: /\.(jpg|jpeg|png|gif|svg)$/, 
-        loaders: ['url-loader?limit=25000', 'img-loader']
+        use: ['url-loader?limit=25000', 'img-loader']
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg)$/, 
-        loader: 'url-loader?limit=20000'
+        use: 'url-loader?limit=20000'
       }
     ]
   },
