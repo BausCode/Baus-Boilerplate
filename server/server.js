@@ -5,7 +5,9 @@ import helmet from 'helmet';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
-import routes from '../app/routes';
+import configureStore from '../app/store/configureStore';
+import { initialState as initialAppState } from '../app/reducers';
+import { getRoutes } from '../app/routes';
 import render from './render';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -34,6 +36,10 @@ module.exports = {
     server.use(express.static(publicPath));
 
     server.get('*', function response(req, res) {
+      const store = configureStore( initialAppState );
+      const initialState = store.getState();
+      const routes = getRoutes(store);
+
       match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
         if (error) {
           res.status(500).send(error.message);
@@ -42,11 +48,11 @@ module.exports = {
           res.redirect(302, redirectLocation.pathname + redirectLocation.search);
         }
         else if (renderProps) {
-          const html = render(React)(renderProps);
+          const html = render(React)(store, renderProps);
           res.status(200).send(html);
         }
         else {
-          const html = render(React)(renderProps);
+          const html = render(React)(store, renderProps);
           res.status(404).send(html);
         }
       });

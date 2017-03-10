@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": "=6.9.2",
+    "node": "=6.9.5",
     "npm": "=3.10.10"
   },
   "repository": {
@@ -37,6 +37,7 @@
     "babel-register": "^6.23.0",
     "compression": "^1.6.2",
     "css-loader": "^0.26.1",
+    "dotenv": "^4.0.0",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.1",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",

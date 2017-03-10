@@ -73,7 +73,9 @@ var config = {
     new webpack.DefinePlugin({
       "process.env": {
         BROWSER: JSON.stringify(true),
-        NODE_ENV: JSON.stringify('development')
+        NODE_ENV: JSON.stringify('development'),
+        DEV_TOOL_POS: JSON.stringify(process.env.DEV_TOOL_POS || 'right'),
+        DEV_TOOL_VISIBLE: process.env.DEV_TOOL_VISIBLE || false
       }
     }),
     new ModernizrWebpackPlugin(modernizrConfig),

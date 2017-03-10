@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
-import routes from './routes';
+import { getRoutes } from './routes';
 import { Map } from 'immutable';
 import configureStore from 'store/configureStore';
 
@@ -22,9 +22,9 @@ const store = configureStore({
 });
 
 render(
-  <Provider store={store}>
-    <Router history={browserHistory}>
-    {routes}
+  <Provider store={ store }>
+    <Router history={ browserHistory }>
+    { getRoutes() }
     </Router>
   </Provider>, 
   document.getElementById('root')
