@@ -2,7 +2,7 @@ import { Map } from 'immutable';
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from 'actions/counter';
 
 export const initialState = Map({
-  value: 0
+  value: 5
 });
 
 export default function counter(state = initialState, action) {

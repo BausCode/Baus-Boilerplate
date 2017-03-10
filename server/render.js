@@ -1,12 +1,9 @@
 import { renderToString } from 'react-dom/server';
 import { RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
-import configureStore from '../app/store/configureStore';
-import { initialState as initialAppState } from '../app/reducers';
 
-export default React => (renderProps) => {
+export default React => (store, renderProps) => {
   const styles = process.env.NODE_ENV !== 'production' ? '' : '<link rel="stylesheet" type="text/css" href="/dist/styles.css" />';
-  const store = configureStore( initialAppState );
   const initialState = JSON.stringify( store.getState() );
   const content = renderToString(
     <Provider store={store}>

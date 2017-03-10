@@ -3,8 +3,14 @@ Baus Boilerplate
 Boilerplate for Universal JS applications with Webkit, React, Redux, and Express.
 
 ### Requirements
-* [Node.js v6.3.0](https://nodejs.org/en/download/)
+* [Node.js v6.9.5](https://nodejs.org/en/download/)
 
+### Environment Variables
+Non required dev variables
+```
+DEV_TOOL_POS={top|right|bottom|left}
+DEV_TOOL_VISIBLE={true|false}
+```
 
 ### Quick Dev Start
 * `nvm use` if using [NVM](https://github.com/creationix/nvm) to select the correct version of Node

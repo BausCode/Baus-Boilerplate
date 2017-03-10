@@ -8,7 +8,7 @@ if (process.env.BROWSER) {
 
 function Header () {
   return (
-    <header className='header--main'>
+    <header className='header'>
       <h1><Link to='/'>BausCode</Link></h1>
       <Nav />
     </header>
