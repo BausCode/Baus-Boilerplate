@@ -30,14 +30,14 @@ function renderDevTools () {
 
 class MainWrapper extends Component {
   componentDidMount() {
-    // Uncomment to inable Google Analytics Page Tracking
+    //Uncomment to enable Google Analytics Page Tracking
     //GA.pageload(this.props.location.pathname);
   }
 
   componentWillReceiveProps(nextProps) {
     if (process.env.BROWSER && this.props.location.pathname !== nextProps.location.pathname) {
       window.scrollTo(0, 0);
-      // Uncomment to inable Google Analytics Page Tracking
+      //Uncomment to enable Google Analytics Page Tracking
       //GA.pageload(nextProps.location.pathname);
     }
   }
