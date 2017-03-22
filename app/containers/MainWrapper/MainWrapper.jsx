@@ -1,12 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import { withRouter } from 'react-router';
-import DevTools from 'components/DevTools';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 //import GA from 'services/gaService';
 
 if (process.env.BROWSER) {
   require('./style.scss');
+}
+
+if (process.env.NODE_ENV === 'development') {
+  const DevTools = require('components/DevTools');
 }
 
 function renderChildren(props) {
@@ -21,7 +24,7 @@ function renderChildren(props) {
 }
 
 function renderDevTools () {
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV === 'development') {
     return <DevTools />;
   }
   return null;

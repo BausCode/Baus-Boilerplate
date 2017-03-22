@@ -36,7 +36,7 @@ var configs = {
     loaders: [
       {
         test: /\.js(x)?$/,
-        loaders: ['babel-loader', 'eslint-loader', 'webpack-strip-logs'],
+        loaders: ['babel-loader', 'webpack-strip-logs'],
         exclude: /node_modules/ 
       },
       {
