@@ -8,10 +8,6 @@ if (process.env.BROWSER) {
   require('./style.scss');
 }
 
-if (process.env.NODE_ENV === 'development') {
-  const DevTools = require('components/DevTools');
-}
-
 function renderChildren(props) {
   return React.Children.map(props.children, child => {
     return React.cloneElement(child, {
@@ -25,6 +21,7 @@ function renderChildren(props) {
 
 function renderDevTools () {
   if (process.env.NODE_ENV === 'development') {
+    const DevTools = require('../../components/DevTools').default;
     return <DevTools />;
   }
   return null;
