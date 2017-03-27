@@ -1,0 +1,16 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins/mq.scss';
+
+.title {
+  &--large {
+    font-size: $font-size-48;
+  }
+
+  &--medium {
+    font-size: $font-size-32;
+  }
+
+  &--small {
+    font-size: $font-size-24;
+  }
+}
