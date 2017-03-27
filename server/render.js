@@ -2,9 +2,15 @@ import { renderToString } from 'react-dom/server';
 import { RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
 
-export default React => (store, renderProps) => {
-  const styles = process.env.NODE_ENV !== 'production' ? '' : '<link rel="stylesheet" type="text/css" href="/dist/styles.css" />';
-  const initialState = JSON.stringify( store.getState() );
+export default React => (store, renderProps = {}, err = null) => {
+  const isProd = process.env.NODE_ENV === 'production';
+  let initialState = store.getState();
+
+  if (err) {
+    initialState.err = err;
+  }
+
+  const styles = isProd ? '<link rel="stylesheet" type="text/css" href="/dist/styles.css" />' : '';
   const content = renderToString(
     <Provider store={store}>
       <RouterContext { ...renderProps } />
@@ -23,9 +29,8 @@ export default React => (store, renderProps) => {
         ${styles}
       </head>
       <body>
-        <div id="root">${content}</div>
-        <script>window.__initial_state__ = ${initialState};</script>
-        <script src="/dist/modernizr-custom.js"></script>
+        <div id="root">${ content }</div>
+        <script>window.__initial_state__ = ${ JSON.stringify(initialState) };</script>
         <script src="/dist/vendor.js"></script>
         <script src="/dist/app.js"></script>
       </body>
