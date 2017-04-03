@@ -46,7 +46,11 @@ class MainWrapper extends Component {
     return (
       <div>
         <Header location={ this.props.location } />
-        <main role="main">
+        <main
+          role="main"
+          aria-live='polite'
+          aria-relevant='additions removals'
+          className='clearfix'>
           { renderChildren(this.props) }
         </main>
         <Footer role="contentinfo" />

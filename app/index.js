@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { getRoutes } from './routes';
-import { Map } from 'immutable';
+import { fromJS } from 'immutable';
 import configureStore from 'store/configureStore';
 
 if (process.env.BROWSER) {
@@ -18,7 +18,8 @@ if (process.env.NODE_ENV === 'development') {
 
 const initialState = window.__initial_state__;
 const store = configureStore({
-  counter: Map( initialState.counter )
+  counter: fromJS( initialState.counter ),
+  err: fromJS( initialState.err )
 });
 
 render(
