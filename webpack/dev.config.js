@@ -3,9 +3,7 @@
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var WebpackErrorNotificationPlugin = require('webpack-error-notification');
-var ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
 var hmrConfig = require('./hmr.config'); 
-var modernizrConfig = require('./modernizr.config');
 var path = require('path');
 
 var ROOT_PATH = path.resolve(__dirname);
@@ -19,17 +17,17 @@ var config = {
   devtool: 'eval-source-map',
   entry: {
     app: [
-      'babel-polyfill', 
       'eventsource-polyfill', // necessary for hot reloading with IE
       'webpack-hot-middleware/client',
       APP_PATH + '/index.js'
     ],
-    vendor: ['react', 'react-dom', 'redux', 'react-redux', 'redux-thunk', 'react-router', 'immutable' ]
+    vendor: ['babel-polyfill', 'react', 'react-dom', 'redux', 'react-redux', 'redux-thunk', 'react-router', 'immutable' ]
   },
   output: {
     path: BUILD_PATH,
     publicPath: '/dist/',
-    filename: '[name].js'
+    filename: '[name].js',
+    chunkFilename: '[name].js'
   },
   resolve: {
     modules: [APP_PATH, 'node_modules'],
@@ -78,13 +76,12 @@ var config = {
         DEV_TOOL_VISIBLE: process.env.DEV_TOOL_VISIBLE || false
       }
     }),
-    new ModernizrWebpackPlugin(modernizrConfig),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new WebpackErrorNotificationPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor']
+      names: ['app', 'vendor']
     })
   ]
 };

@@ -21,12 +21,14 @@ export function getRoutes () {
 }
 
 function getErrPage (nextState, cb) {
-  const ErrPage = require('./containers/ErrPage').default;
-  if (process.env.BROWSER) {
-    cb(null, props => <ErrPage {...props} />);
-  }
-  else {
-    // Trigger 404 on server
-    cb({status: 404}, props => <ErrPage {...props} />);
-  }
+  require.ensure(['./containers/ErrPage'], function(){
+    const ErrPage = require('./containers/ErrPage').default;
+    if (process.env.BROWSER) {
+      cb(null, props => <ErrPage {...props} />);
+    }
+    else {
+      // Trigger 404 on server
+      cb({status: 404}, props => <ErrPage {...props} />);
+    }
+  }, 'errPage');
 }

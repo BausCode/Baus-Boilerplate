@@ -37,6 +37,7 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.23.0",
+    "chunk-manifest-webpack-plugin": "^1.0.0",
     "compression": "^1.6.2",
     "css-loader": "^0.27.3",
     "dotenv": "^4.0.0",
@@ -66,6 +67,8 @@
     "style-loader": "^0.16.0",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
+    "webpack-manifest-plugin": "^1.1.0",
+    "webpack-md5-hash": "0.0.5",
     "webpack-strip-logs": "^0.1.2"
   },
   "devDependencies": {

@@ -1,12 +1,13 @@
 'use strict';
 
+var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
-var modernizrConfig = require('./modernizr.config');
-var path = require('path');
+var ManifestPlugin = require('webpack-manifest-plugin');
+var WebpackMd5Hash = require('webpack-md5-hash');
+var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 
-var BUILD_PATH = path.resolve(__dirname, '../public/dist');
+var BUILD_PATH = path.resolve(__dirname, '../public/dist/');
 var APP_PATH = path.resolve(__dirname, '../app');
 
 var sassLoaders = [
@@ -18,15 +19,13 @@ var sassLoaders = [
 var configs = {
   context: APP_PATH,
   entry: {
-    app: [
-      'babel-polyfill',
-      APP_PATH + '/index.js'
-    ],
-    vendor: ['react', 'react-dom', 'redux', 'react-redux', 'redux-thunk', 'react-router', 'immutable' ]
+    app: APP_PATH + '/index.js',
+    vendor: ['babel-polyfill', 'react', 'react-dom', 'redux', 'react-redux', 'redux-thunk', 'react-router', 'immutable' ]
   },
   output: {
     path: BUILD_PATH,
-    filename: '[name].js'
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js'
   },
   resolve: {
     modules: [APP_PATH, 'node_modules'],
@@ -61,10 +60,19 @@ var configs = {
       }
     }),
     new ExtractTextPlugin('styles.css'),
-    new ModernizrWebpackPlugin(modernizrConfig),
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor']
+      names: ['app', 'vendor', 'manifest'],
+      minChunks: Infinity
+    }),
+    new WebpackMd5Hash(),
+    new ManifestPlugin({
+      basePath: '/dist/',
+      fileName: 'manifest.json'
+    }),
+    new ChunkManifestPlugin({
+      filename: 'chunk-manifest.json',
+      manifestVariable: "webpackManifest"
     })
   ]
 };
