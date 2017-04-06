@@ -17,10 +17,7 @@
     "node": "=6.9.5",
     "npm": "=3.10.10"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:BausCode/Baus-Boilerplate.git"
-  },
+  "repository": "git@github.com:BausCode/Baus-Boilerplate.git",
   "dependencies": {
     "autoprefixer": "^6.7.3",
     "babel-loader": "^6.3.1",
@@ -87,5 +84,7 @@
     "webpack-dev-middleware": "^1.10.0",
     "webpack-error-notification": "^0.1.6",
     "webpack-hot-middleware": "^2.17.0"
-  }
+  },
+  "author": "Gabriel Walford <gabriel@bauscode.com>",
+  "license": "MIT"
 }
