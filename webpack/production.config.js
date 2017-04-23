@@ -18,6 +18,7 @@ var sassLoaders = [
 
 var configs = {
   context: APP_PATH,
+  devtool: false,
   entry: {
     app: APP_PATH + '/index.js',
     vendor: ['babel-polyfill', 'react', 'react-dom', 'redux', 'react-redux', 'redux-thunk', 'react-router', 'immutable' ]
