@@ -31,6 +31,8 @@ ex. `npm run [command]`
 * `postinstall` - Runs distribution task on install - specifically in place for Heroku build
 * `dist` - Distribution task to build Production Webpack bundles
 * `clean` - Remove any old builds and make a new distribution folder
+* `eslint-all` - ESLint all .jsx & .js files excluding .gitignore files
+* `eslint-file` - ESLint a specific file TBA at end of command
 * `webpack-prod` - Production Webpack build command
 * `start` - Start Node server
 * `prod` - Start Node server for Production env
