@@ -3,8 +3,14 @@ Baus Boilerplate
 Boilerplate for Universal JS applications with Webkit, React, Redux, and Express.
 
 ### Requirements
-* [Node.js v5.9.0](https://nodejs.org/en/download/)
+* [Node.js v6.9.5](https://nodejs.org/en/download/)
 
+### Environment Variables
+Non required dev variables
+```
+DEV_TOOL_POS={top|right|bottom|left}
+DEV_TOOL_VISIBLE={true|false}
+```
 
 ### Quick Dev Start
 * `nvm use` if using [NVM](https://github.com/creationix/nvm) to select the correct version of Node
@@ -25,6 +31,8 @@ ex. `npm run [command]`
 * `postinstall` - Runs distribution task on install - specifically in place for Heroku build
 * `dist` - Distribution task to build Production Webpack bundles
 * `clean` - Remove any old builds and make a new distribution folder
+* `eslint-all` - ESLint all .js & .jsx files excluding .gitignore files
+* `eslint-file` - ESLint a specific file TBA at end of command
 * `webpack-prod` - Production Webpack build command
 * `start` - Start Node server
 * `prod` - Start Node server for Production env
@@ -61,7 +69,7 @@ Set the required variables in `terraform.tfvars`. Then set the following variabl
 |   ├── Components/                   
 |   |   ├── Component Group/          # Child Components / Dumb Components
 |   |   |   ├── Index.jsx             # Componet Entry Point
-|   |   |   ├── Component.jsx         # Child Component Incorporated in Index.jsx 
+|   |   |   ├── Component.jsx         # Child Component Incorporated in Index.jsx
 |   |   ├── Component.jsx             # Single Component
 |   |
 |   ├── Containers/                   
@@ -72,8 +80,8 @@ Set the required variables in `terraform.tfvars`. Then set the following variabl
 |   |   ├── Defaults/                 # Default Global styles
 |   |   ├── Fonts/                    # Font Families
 |   |   ├── Mixins/                   # Mixin functions
-|   |   ├── Modules/                  # Module Styles for Different Components 
-|   |   |   ├── Component.scss        # Specific styles imported for a component 
+|   |   ├── Modules/                  # Module Styles for Different Components
+|   |   |   ├── Component.scss        # Specific styles imported for a component
 |   |   ├── Utilities/                # Utility sytles - ie. clearfix
 |   |   ├── Variables.scss            # Global variables
 |   |

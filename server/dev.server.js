@@ -3,7 +3,7 @@ import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
-module.exports = function(app) {
+module.exports = function(server) {
   const compiler = webpack(config);
   const middleware = webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,
@@ -23,6 +23,6 @@ module.exports = function(app) {
     }
   });
 
-  app.use(middleware);
-  app.use(webpackHotMiddleware(compiler));
+  server.use(middleware);
+  server.use(webpackHotMiddleware(compiler));
 }

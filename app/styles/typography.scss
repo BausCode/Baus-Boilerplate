@@ -1,0 +1,78 @@
+// 01._typography.scss
+@import './variables.scss';
+
+/********************************************************** Typography */
+
+body {
+  color: $black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $font-size-base; // 16px
+  -moz-osx-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  line-height: 1.5;
+  margin: 0;
+  padding: 0 0 $space;
+}
+
+ul,
+ol,
+dl {
+  line-height: 1.5;
+  list-style: none;
+  margin: 0 0 0 $space;
+  padding: 0 0 ($space/2);
+}
+
+p  ul,
+ul ul,
+ol ul,
+p  ol,
+ul ol,
+ol ol {
+  padding-bottom: 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+code {
+  font-size: $font-size-12;
+  line-height: 1.5;
+}
+
+
+/********************************************************** Icons */
+
+/*
+[class^='icon-'], [class*=' icon-'] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== * /
+  -moz-osx-font-smoothing: grayscale;
+
+
+  // hide icon names when fontface is supported
+  .fontface & span { display: none; }
+}
+*/

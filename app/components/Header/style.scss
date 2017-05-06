@@ -1,0 +1,16 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins/mq.scss';
+
+.header {
+  left: 0;
+  padding: $space 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  h1 {
+    display: inline-block;
+    font-size: $font-size-36;
+    padding: 0 $space;
+  }
+}

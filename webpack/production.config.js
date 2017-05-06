@@ -1,65 +1,78 @@
 'use strict';
 
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
-var modernizrConfig = require('./modernizr.config');
 var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ManifestPlugin = require('webpack-manifest-plugin');
+var WebpackMd5Hash = require('webpack-md5-hash');
+var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 
-var BUILD_PATH = path.resolve(__dirname, '../public/dist');
+var BUILD_PATH = path.resolve(__dirname, '../public/dist/');
 var APP_PATH = path.resolve(__dirname, '../app');
 
 var sassLoaders = [
-  'css',
-  'postcss',
-  'sass?outputStyle=compressed&includePaths[]=' + path.resolve(__dirname, '../app')
+  'css-loader',
+  'postcss-loader',
+  'sass-loader?outputStyle=compressed&includePaths[]=' + APP_PATH
 ];
 
 var configs = {
-  entry: APP_PATH + '/app.js',
+  context: APP_PATH,
+  entry: {
+    app: APP_PATH + '/index.js',
+    vendor: ['babel-polyfill', 'react', 'react-dom', 'redux', 'react-redux', 'redux-thunk', 'react-router', 'immutable' ]
+  },
   output: {
     path: BUILD_PATH,
-    filename: "app.js"
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss']
+    modules: [APP_PATH, 'node_modules'],
+    extensions: ['.js', '.jsx', '.scss']
   },
   module: {
     loaders: [
       {
         test: /\.js(x)?$/,
-        loaders: ['babel'],
+        loaders: ['babel-loader', 'webpack-strip-logs'],
         exclude: /node_modules/ 
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: sassLoaders.join('!')})
       },
       { 
         test: /\.(jpg|jpeg|png|gif|svg)$/, 
-        loaders: ['url?limit=25000', 'img']
+        loaders: ['url-loader?limit=25000', 'img-loader']
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg)$/, 
-        loader: 'url?limit=20000'
+        loader: 'url-loader?limit=20000'
       }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env": {
+      'process.env': {
         BROWSER: JSON.stringify(true),
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new ExtractTextPlugin('app.css'),
-    new ModernizrWebpackPlugin(modernizrConfig),
-    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } })
-  ],
-  postcss: [
-    autoprefixer({
-      browsers: ['last 2 versions']
+    new ExtractTextPlugin('styles.css'),
+    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['app', 'vendor', 'manifest'],
+      minChunks: Infinity
+    }),
+    new WebpackMd5Hash(),
+    new ManifestPlugin({
+      basePath: '/dist/',
+      fileName: 'manifest.json'
+    }),
+    new ChunkManifestPlugin({
+      filename: 'chunk-manifest.json',
+      manifestVariable: "webpackManifest"
     })
   ]
 };

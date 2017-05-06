@@ -1,0 +1,35 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins/mq.scss';
+
+.main-nav {
+  display: inline-block;
+  padding: $space/2 $space/3;
+
+  @include mq($S) {
+    float: right;
+    padding: 0 $space;
+  }
+
+  &__list {
+    padding: 0;
+  }
+
+  &__list-item {
+    display: inline-block;
+    margin: 0 1em 0 0;
+
+    &-link {
+      background: transparent;
+      border-radius: 5px;
+      font-size: $font-size-14;
+      padding: $space/4 $space/2;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &.active,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
