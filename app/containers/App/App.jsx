@@ -8,9 +8,10 @@ function App (props) {
   return (
     <MainWrapper
       actions={ props.actions }
-      children={ props.children }
       location={ props.location }
-      state={ props.state } />
+      state={ props.state }>
+      { props.children }
+    </MainWrapper>
   );
 }
 

@@ -17,12 +17,12 @@ export default React => (store, renderProps = {}, err = null) => {
 
   if (isProd) {
     const manifest = require('../public/dist/manifest.json');
-    styles = `<link rel="stylesheet" type="text/css" href="${ manifest["/dist/app.css"] }" />`;
+    styles = `<link rel="stylesheet" type="text/css" href="/dist/${ manifest["app.css"] }" />`;
     scripts = `
       <script>window.webpackManifest = ${ JSON.stringify(require('../public/dist/chunk-manifest.json') ) };</script>
-      <script src="${ manifest["/dist/manifest.js"] }"></script>
-      <script src="${ manifest["/dist/vendor.js"] }"></script>
-      <script src="${ manifest["/dist/app.js"] }"></script>
+      <script src="/dist/${ manifest["manifest.js"] }"></script>
+      <script src="/dist/${ manifest["vendor.js"] }"></script>
+      <script src="/dist/${ manifest["app.js"] }"></script>
     `;
   }
 

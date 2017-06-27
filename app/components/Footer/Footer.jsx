@@ -7,7 +7,7 @@ if (process.env.BROWSER) {
 function Footer () {
   return (
     <footer className='footer' role='contentinfo'>
-      <a href='https://github.com/bauscode' target='_blank'>BausCode GitHub</a>
+      <a href='https://github.com/bauscode' target='_blank' rel='noopener noreferrer'>BausCode GitHub</a>
     </footer>
   );
 }

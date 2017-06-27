@@ -25,8 +25,9 @@ var configs = {
   },
   output: {
     path: BUILD_PATH,
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].js'
+    publicPath: '/dist/',
+    filename: '[id].[chunkhash].js',
+    chunkFilename: '[id].[chunkhash].js'
   },
   resolve: {
     modules: [APP_PATH, 'node_modules'],
@@ -60,20 +61,18 @@ var configs = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new ExtractTextPlugin('styles.css'),
+    new ExtractTextPlugin('styles.[contenthash].css'),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['app', 'vendor', 'manifest'],
       minChunks: Infinity
     }),
     new WebpackMd5Hash(),
-    new ManifestPlugin({
-      basePath: '/dist/',
-      fileName: 'manifest.json'
-    }),
+    new ManifestPlugin({ fileName: 'manifest.json' }),
     new ChunkManifestPlugin({
       filename: 'chunk-manifest.json',
-      manifestVariable: "webpackManifest"
+      manifestVariable: 'webpackManifest'
     })
   ]
 };
