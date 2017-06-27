@@ -27,6 +27,9 @@
     },
     "production": {
       "plugins": [
+        ["transform-react-remove-prop-types", {
+          "mode": "remove"
+        }],
         "transform-react-inline-elements",
         "transform-react-constant-elements"
       ]

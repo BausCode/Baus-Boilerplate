@@ -45,7 +45,7 @@ var config = {
         use: [
           'style-loader',
           'css-loader',
-          'postcss-loader',
+          { loader: 'postcss-loader', options: { sourceMap: true } },
           {
             loader: 'sass-loader',
             options: {

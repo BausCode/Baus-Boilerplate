@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActions } from 'actions';
 import MainWrapper from 'containers/MainWrapper';
@@ -7,9 +8,10 @@ function App (props) {
   return (
     <MainWrapper
       actions={ props.actions }
-      children={ props.children }
       location={ props.location }
-      state={ props.state } />
+      state={ props.state }>
+      { props.children }
+    </MainWrapper>
   );
 }
 

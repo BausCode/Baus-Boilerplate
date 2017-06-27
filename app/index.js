@@ -25,7 +25,7 @@ const store = configureStore({
 render(
   <Provider store={ store }>
     <Router history={ browserHistory }>
-    { getRoutes() }
+      { getRoutes() }
     </Router>
   </Provider>, 
   document.getElementById('root')
