@@ -3,7 +3,7 @@ Baus Boilerplate
 Boilerplate for Universal JS applications with Webkit, React, Redux, and Express.
 
 ### Requirements
-* [Node.js v6.9.5](https://nodejs.org/en/download/)
+* [Node.js v7.9.0](https://nodejs.org/en/download/)
 
 ### Environment Variables
 Non required dev variables
@@ -31,6 +31,8 @@ ex. `npm run [command]`
 * `postinstall` - Runs distribution task on install - specifically in place for Heroku build
 * `dist` - Distribution task to build Production Webpack bundles
 * `clean` - Remove any old builds and make a new distribution folder
+* `eslint-all` - ESLint all .js & .jsx files excluding .gitignore files
+* `eslint-file` - ESLint a specific file TBA at end of command
 * `webpack-prod` - Production Webpack build command
 * `start` - Start Node server
 * `prod` - Start Node server for Production env
